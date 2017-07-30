@@ -34,6 +34,12 @@ public class TileBewitchedSapling extends TileBasic {
     }
 
     @Override
+    public void onAdded(IWorld world, int x, int y, TileLayer layer) {
+        super.onAdded(world, x, y, layer);
+        world.causeLightUpdate(x, y);
+    }
+
+    @Override
     public boolean canPlace(IWorld world, int x, int y, TileLayer layer) {
         Tile getLowerTile = world.getState(x, y-1).getTile();
         return (getLowerTile == GameContent.TILE_DIRT || getLowerTile == GameContent.TILE_GRASS) && super.canPlace(world, x, y, layer);
@@ -47,6 +53,7 @@ public class TileBewitchedSapling extends TileBasic {
 
     @Override
     public int getLight(IWorld world, int x, int y, TileLayer layer) {
+
         return 3;
     }
 

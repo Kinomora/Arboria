@@ -16,9 +16,7 @@ import de.ellpeck.rockbottom.api.world.TileLayer;
 
 import java.util.List;
 
-/**
- * Created by Kinomora on 7/13/2017.
- */
+
 public class TileNightfallSapling extends TileBasic {
     //Variables
     private static final String tileName = "tileNightfallSapling";
@@ -33,6 +31,12 @@ public class TileNightfallSapling extends TileBasic {
     public void describeItem(IAssetManager manager, ItemInstance instance, List<String> desc, boolean isAdvanced) {
         super.describeItem(manager, instance, desc, isAdvanced);
         desc.addAll(manager.getFont().splitTextToLength(500, 1f, true, manager.localize(LOC)));
+    }
+
+    @Override
+    public void onAdded(IWorld world, int x, int y, TileLayer layer) {
+        super.onAdded(world, x, y, layer);
+        world.causeLightUpdate(x, y);
     }
 
     @Override
