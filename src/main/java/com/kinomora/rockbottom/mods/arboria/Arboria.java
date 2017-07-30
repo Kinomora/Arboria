@@ -1,32 +1,18 @@
 package com.kinomora.rockbottom.mods.arboria;
 
 import com.kinomora.rockbottom.mods.arboria.init.ArboriaTiles;
-import com.kinomora.rockbottom.mods.arboria.tiles.TileBewitchedSapling;
-import com.kinomora.rockbottom.mods.arboria.tiles.TileDaybreakSapling;
-import com.kinomora.rockbottom.mods.arboria.tiles.TileNightfallSapling;
-import com.kinomora.rockbottom.mods.arboria.tiles.TileShadowlessSapling;
 import de.ellpeck.rockbottom.api.IApiHandler;
 import de.ellpeck.rockbottom.api.IGameInstance;
-import de.ellpeck.rockbottom.api.RockBottomAPI;
 import de.ellpeck.rockbottom.api.event.IEventHandler;
 import de.ellpeck.rockbottom.api.mod.IMod;
-import de.ellpeck.rockbottom.api.tile.Tile;
 import org.newdawn.slick.util.Log;
 
 public class Arboria implements IMod {
 
-    public static final String VERSION = "@VERSION@";
-    public static final String MOD_NAME = "Arboria";
+    private static final String VERSION = "@VERSION@";
+    private static final String MOD_NAME = "Arboria";
 
     public static Arboria instance;
-
-    //Tiles (blocks)
-
-
-    //Items
-    //public static Item itemSapling;
-
-    //Other
 
     public Arboria() {
         instance = this;
