@@ -1,5 +1,10 @@
 package com.kinomora.rockbottom.mods.arboria;
 
+import com.kinomora.rockbottom.mods.arboria.init.ArboriaTiles;
+import com.kinomora.rockbottom.mods.arboria.tiles.TileBewitchedSapling;
+import com.kinomora.rockbottom.mods.arboria.tiles.TileDaybreakSapling;
+import com.kinomora.rockbottom.mods.arboria.tiles.TileNightfallSapling;
+import com.kinomora.rockbottom.mods.arboria.tiles.TileShadowlessSapling;
 import de.ellpeck.rockbottom.api.IApiHandler;
 import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.RockBottomAPI;
@@ -16,10 +21,7 @@ public class Arboria implements IMod {
     public static Arboria instance;
 
     //Tiles (blocks)
-    public static Tile tileDaybreakSapling;
-    public static Tile tileShadowlessSapling;
-    public static Tile tileNightfallSapling;
-    public static Tile tileBewitchedSapling;
+
 
     //Items
     //public static Item itemSapling;
@@ -63,20 +65,12 @@ public class Arboria implements IMod {
     public void init(IGameInstance game, IApiHandler apiHandler, IEventHandler eventHandler) {
         Log.info("Starting initializing " + MOD_NAME + " v" + VERSION + " for RockBottom.");
 
-        //Initialize tiles (blocks)
-        tileBewitchedSapling = new TileBewitchedSapling(RockBottomAPI.createRes(this, "tileBewitchedSapling")).register();
-        tileShadowlessSapling = new TileShadowlessSapling(RockBottomAPI.createRes(this, "tileShadowlessSapling")).register();
-        tileNightfallSapling = new TileNightfallSapling(RockBottomAPI.createRes(this, "tileNightfallSapling")).register();
-        tileDaybreakSapling = new TileDaybreakSapling(RockBottomAPI.createRes(this, "tileDaybreakSapling")).register();
-
-        //Initialize items
-        //itemPowerLineUnused = new ItemPowerLineUnused(RockBottomAPI.createRes(this,"itemPowerLineUnused")).register();
-
-        //Add sipa tanks
     }
 
     @Override
     public void postInit(IGameInstance game, IApiHandler apiHandler, IEventHandler eventHandler) {
         Log.info("Finished initializing " + MOD_NAME + " v" + VERSION + ".");
+
+        ArboriaTiles.init();
     }
 }

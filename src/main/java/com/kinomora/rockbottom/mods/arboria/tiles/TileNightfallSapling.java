@@ -1,5 +1,6 @@
-package com.kinomora.rockbottom.mods.arboria;
+package com.kinomora.rockbottom.mods.arboria.tiles;
 
+import com.kinomora.rockbottom.mods.arboria.Arboria;
 import de.ellpeck.rockbottom.api.RockBottomAPI;
 import de.ellpeck.rockbottom.api.assets.IAssetManager;
 import de.ellpeck.rockbottom.api.entity.Entity;

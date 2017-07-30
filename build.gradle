@@ -1,5 +1,5 @@
 group 'com.kinomora.rockbottom.mods.arboria'
-version '0.1'
+version '0.0.1'
 
 apply from: "https://github.com/RockBottomGame/Gradle/raw/master/buildscript.gradle"
 
