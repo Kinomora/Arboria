@@ -9,10 +9,11 @@ import de.ellpeck.rockbottom.api.world.IWorld;
 public class TileSunnyWood extends TileBasic {
 
     public static final BoolProp IS_NATURAL = new BoolProp("isNarutal", false);
+    public static final BoolProp HAS_NODE = new BoolProp("hasNode", false);
 
     public TileSunnyWood(IResourceName name) {
         super(name);
-        this.addProps(IS_NATURAL);
+        this.addProps(IS_NATURAL, HAS_NODE);
     }
 
     @Override
