@@ -20,14 +20,15 @@ public class Arboria implements IMod {
     public static Tile tileShadowlessSapling;
     public static Tile tileNightfallSapling;
     public static Tile tileBewitchedSapling;
-    public static Tile tileBed;
 
     //Items
     //public static Item itemSapling;
 
     //Other
 
-    public Arboria() { instance = this; }
+    public Arboria() {
+        instance = this;
+    }
 
     @Override
     public String getDisplayName() {
@@ -67,7 +68,6 @@ public class Arboria implements IMod {
         tileShadowlessSapling = new TileShadowlessSapling(RockBottomAPI.createRes(this, "tileShadowlessSapling")).register();
         tileNightfallSapling = new TileNightfallSapling(RockBottomAPI.createRes(this, "tileNightfallSapling")).register();
         tileDaybreakSapling = new TileDaybreakSapling(RockBottomAPI.createRes(this, "tileDaybreakSapling")).register();
-        tileBed = new TileBed(RockBottomAPI.createRes(this,"TileBed")).register();
 
         //Initialize items
         //itemPowerLineUnused = new ItemPowerLineUnused(RockBottomAPI.createRes(this,"itemPowerLineUnused")).register();
