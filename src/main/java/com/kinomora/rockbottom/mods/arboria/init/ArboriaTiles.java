@@ -26,10 +26,10 @@ public class ArboriaTiles {
     public static void init() {
 
         //Saplings
-        tileBewitchedSapling = new TileBewitchedSapling(RockBottomAPI.createRes(Arboria.instance, "tileBewitchedSapling")).register();
-        tileShadowlessSapling = new TileShadowlessSapling(RockBottomAPI.createRes(Arboria.instance, "tileShadowlessSapling")).register();
-        tileNightfallSapling = new TileNightfallSapling(RockBottomAPI.createRes(Arboria.instance, "tileNightfallSapling")).register();
-        tileDaybreakSapling = new TileDaybreakSapling(RockBottomAPI.createRes(Arboria.instance, "tileDaybreakSapling")).register();
+        tileBewitchedSapling = new TileBewitchedSapling(RockBottomAPI.createRes(Arboria.instance, "tileBewitchedSapling")).register().setForceDrop();
+        tileShadowlessSapling = new TileShadowlessSapling(RockBottomAPI.createRes(Arboria.instance, "tileShadowlessSapling")).register().setForceDrop();
+        tileNightfallSapling = new TileNightfallSapling(RockBottomAPI.createRes(Arboria.instance, "tileNightfallSapling")).register().setForceDrop();
+        tileDaybreakSapling = new TileDaybreakSapling(RockBottomAPI.createRes(Arboria.instance, "tileDaybreakSapling")).register().setForceDrop();
 
         //Wood
         tileDuskWood = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileDuskWood")).register();
