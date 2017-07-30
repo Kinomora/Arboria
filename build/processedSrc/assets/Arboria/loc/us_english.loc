@@ -5,5 +5,5 @@ arboria/item.tileBewitchedSapling=Bewitched Sapling
 
 arboria/details.tileShadowlessSapling=A sapling that produces spia during the day.
 arboria/details.tileDaybreakSapling=A sapling that produces sipa during dawn.
-arboria/details.tileNightfallSapling=A sapling that produces spia during dusk.
-arboria/details.tileBewitchedSapling=A sapling that produces spida during the night.
+arboria/details.tileNightfallSapling=A sapling that produces sipa during dusk.
+arboria/details.tileBewitchedSapling=A sapling that produces sipa during the night.

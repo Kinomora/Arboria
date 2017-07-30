@@ -40,7 +40,7 @@ public class Arboria implements IMod {
 
     @Override
     public String getDescription() {
-        return "A mod by Kinomora that adds magic and various other mechanics driven by Sipa power.";
+        return "A mod by Kinomora & Quarris that adds magic and various other mechanics driven by Sipa power.";
     }
 
     @Override

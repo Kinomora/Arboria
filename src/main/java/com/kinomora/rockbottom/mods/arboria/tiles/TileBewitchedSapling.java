@@ -27,14 +27,12 @@ public class TileBewitchedSapling extends TileBasic {
         super(name);
     }
 
+    @Override
     public int getLight(IWorld world, int x, int y, TileLayer layer) {
         return 3;
     }
 
-    public void onDestroyed(IWorld world, int x, int y, Entity destroyer, TileLayer layer, boolean forceDrop) {
-        super.onDestroyed(world, x, y, destroyer, layer, forceDrop);
-    }
-
+    @Override
     public BoundBox getBoundBox(IWorld world, int x, int y) {
         return null;
     }
@@ -43,11 +41,6 @@ public class TileBewitchedSapling extends TileBasic {
     public void describeItem(IAssetManager manager, ItemInstance instance, List<String> desc, boolean isAdvanced) {
         super.describeItem(manager, instance, desc, isAdvanced);
         desc.addAll(manager.getFont().splitTextToLength(500, 1f, true, manager.localize(LOC)));
-    }
-
-    @Override
-    protected ITileRenderer createRenderer(IResourceName name) {
-        return super.createRenderer(name);
     }
 
     @Override
