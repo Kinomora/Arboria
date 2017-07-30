@@ -1,10 +1,7 @@
 package com.kinomora.rockbottom.mods.arboria.init;
 
 import com.kinomora.rockbottom.mods.arboria.Arboria;
-import com.kinomora.rockbottom.mods.arboria.tiles.TileBewitchedSapling;
-import com.kinomora.rockbottom.mods.arboria.tiles.TileDaybreakSapling;
-import com.kinomora.rockbottom.mods.arboria.tiles.TileNightfallSapling;
-import com.kinomora.rockbottom.mods.arboria.tiles.TileShadowlessSapling;
+import com.kinomora.rockbottom.mods.arboria.tiles.*;
 import de.ellpeck.rockbottom.api.RockBottomAPI;
 import de.ellpeck.rockbottom.api.tile.Tile;
 import de.ellpeck.rockbottom.api.tile.TileBasic;
@@ -32,16 +29,16 @@ public class ArboriaTiles {
         tileDaybreakSapling = new TileDaybreakSapling(RockBottomAPI.createRes(Arboria.instance, "tileDaybreakSapling")).register().setForceDrop();
 
         //Wood
-        tileDuskWood = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileDuskWood")).register();
-        tileMoonlitWood = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileMoonlitWood")).register();
-        tileMorningWood = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileMorningWood")).register();
-        tileSunnyWood = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileSunnyWood")).register();
+        tileDuskWood = new TileDuskWood(RockBottomAPI.createRes(Arboria.instance, "tileDuskWood")).register().setForceDrop();
+        tileMoonlitWood = new TileMoonlitWood(RockBottomAPI.createRes(Arboria.instance, "tileMoonlitWood")).register().setForceDrop();
+        tileMorningWood = new TileMorningWood(RockBottomAPI.createRes(Arboria.instance, "tileMorningWood")).register().setForceDrop();
+        tileSunnyWood = new TileSunnyWood(RockBottomAPI.createRes(Arboria.instance, "tileSunnyWood")).register().setForceDrop();
 
         //Boards
-        tileDuskBoards = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileDuskBoards")).register();
-        tileMoonlitBoards = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileMoonlitBoards")).register();
-        tileMorningBoards = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileMorningBoards")).register();
-        tileSunnyBoards = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileSunnyBoards")).register();
+        tileDuskBoards = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileDuskBoards")).register().setForceDrop();
+        tileMoonlitBoards = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileMoonlitBoards")).register().setForceDrop();
+        tileMorningBoards = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileMorningBoards")).register().setForceDrop();
+        tileSunnyBoards = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileSunnyBoards")).register().setForceDrop();
 
         //Leaves
         tileDuskLeaves = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileDuskLeaves")).register();
