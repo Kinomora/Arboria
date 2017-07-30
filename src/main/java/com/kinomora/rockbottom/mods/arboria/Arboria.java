@@ -1,6 +1,7 @@
 package com.kinomora.rockbottom.mods.arboria;
 
 import com.kinomora.rockbottom.mods.arboria.init.ArboriaGen;
+import com.kinomora.rockbottom.mods.arboria.init.ArboriaRecipes;
 import com.kinomora.rockbottom.mods.arboria.init.ArboriaTiles;
 import de.ellpeck.rockbottom.api.IApiHandler;
 import de.ellpeck.rockbottom.api.IGameInstance;
@@ -60,5 +61,6 @@ public class Arboria implements IMod {
 
         ArboriaGen.init();
         ArboriaTiles.init();
+        ArboriaRecipes.init();
     }
 }
