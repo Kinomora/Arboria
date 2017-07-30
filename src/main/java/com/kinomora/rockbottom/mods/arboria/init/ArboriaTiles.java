@@ -20,6 +20,8 @@ public class ArboriaTiles {
     //Leaves
     public static Tile tileDuskLeaves, tileMoonlitLeaves, tileMorningLeaves, tileSunnyLeaves;
 
+    public static Tile tileNode;
+
     public static void init() {
 
         //Saplings
@@ -45,5 +47,7 @@ public class ArboriaTiles {
         tileMoonlitLeaves = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileMoonlitLeaves")).register();
         tileMorningLeaves = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileMorningLeaves")).register();
         tileSunnyLeaves = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileSunnyLeaves")).register();
+
+        tileNode = new TileNode(RockBottomAPI.createRes(Arboria.instance, "tileNode")).register();
     }
 }
