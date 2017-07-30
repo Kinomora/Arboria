@@ -1,5 +1,6 @@
-package com.kinomora.rockbottom.mods.arboria;
+package com.kinomora.rockbottom.mods.arboria.tiles;
 
+import com.kinomora.rockbottom.mods.arboria.Arboria;
 import de.ellpeck.rockbottom.api.RockBottomAPI;
 import de.ellpeck.rockbottom.api.assets.IAssetManager;
 import de.ellpeck.rockbottom.api.entity.Entity;
@@ -16,18 +17,18 @@ import java.util.List;
 /**
  * Created by Kinomora on 7/13/2017.
  */
-public class TileBewitchedSapling extends TileBasic {
+public class TileShadowlessSapling extends TileBasic {
     //Variables
-    private static final String tileName = "tileBewitchedSapling";
+    private static final String tileName = "tileShadowlessSapling";
     private static final IResourceName LOC = RockBottomAPI.createRes(Arboria.instance, "details." + tileName);
 
     //Constructor
-    public TileBewitchedSapling(IResourceName name) {
+    public TileShadowlessSapling(IResourceName name) {
         super(name);
     }
 
     public int getLight(IWorld world, int x, int y, TileLayer layer) {
-        return 3;
+        return 10;
     }
 
     public void onDestroyed(IWorld world, int x, int y, Entity destroyer, TileLayer layer, boolean forceDrop) {
