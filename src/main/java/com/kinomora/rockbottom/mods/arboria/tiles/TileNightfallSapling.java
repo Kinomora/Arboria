@@ -28,19 +28,24 @@ public class TileNightfallSapling extends TileBasic {
     }
 
     @Override
+    public void describeItem(IAssetManager manager, ItemInstance instance, List<String> desc, boolean isAdvanced) {
+        super.describeItem(manager, instance, desc, isAdvanced);
+        desc.addAll(manager.getFont().splitTextToLength(500, 1f, true, manager.localize(LOC)));
+    }
+
+    @Override
     public int getLight(IWorld world, int x, int y, TileLayer layer) {
         return 3;
     }
 
     @Override
-    public BoundBox getBoundBox(IWorld world, int x, int y) {
-        return null;
+    public boolean canPlaceInLayer(TileLayer layer) {
+        return layer == TileLayer.MAIN;
     }
 
     @Override
-    public void describeItem(IAssetManager manager, ItemInstance instance, List<String> desc, boolean isAdvanced) {
-        super.describeItem(manager, instance, desc, isAdvanced);
-        desc.addAll(manager.getFont().splitTextToLength(500, 1f, true, manager.localize(LOC)));
+    public BoundBox getBoundBox(IWorld world, int x, int y) {
+        return null;
     }
 
     @Override
