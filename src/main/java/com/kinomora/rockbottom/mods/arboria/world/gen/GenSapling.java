@@ -7,6 +7,7 @@ import de.ellpeck.rockbottom.api.world.IChunk;
 import de.ellpeck.rockbottom.api.world.IWorld;
 import de.ellpeck.rockbottom.api.world.TileLayer;
 import de.ellpeck.rockbottom.api.world.gen.IWorldGenerator;
+import org.newdawn.slick.Game;
 import org.newdawn.slick.util.Log;
 
 import java.util.Random;
@@ -19,17 +20,11 @@ public abstract class GenSapling implements IWorldGenerator {
 
     @Override
     public void generate(IWorld world, IChunk chunk, Random rand) {
-
-        boolean spawned = false;
-        while (!spawned) {
-            int x = chunk.getX() + rand.nextInt(Constants.CHUNK_SIZE - 1) - 1;
-            int y = 0;
-            while (world.getState(TileLayer.MAIN, x, y).getTile() != GameContent.TILE_GRASS && y < 10) {
-                y++;
-            }
-            if (world.getState(TileLayer.MAIN, x, y).getTile() == GameContent.TILE_GRASS) {
-                world.setState(x, y + 1, getSapling());
-                spawned = true;
+        if (rand.nextInt(spawnChance()) == 0) {
+            int x = chunk.getX() + rand.nextInt(Constants.CHUNK_SIZE);
+            int y = chunk.getLowestAirUpwards(TileLayer.MAIN, x, 0);
+            if (world.getState(x, y-1).getTile() == GameContent.TILE_GRASS) {
+                world.setState(x, y, getSapling());
             }
         }
     }
@@ -37,7 +32,11 @@ public abstract class GenSapling implements IWorldGenerator {
 
     @Override
     public int getPriority() {
-        return 0;
+        return 200;
+    }
+
+    public int spawnChance() {
+        return 1;
     }
 
     public abstract TileState getSapling();
