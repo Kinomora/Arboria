@@ -14,9 +14,6 @@ import de.ellpeck.rockbottom.api.world.TileLayer;
 
 import java.util.List;
 
-/**
- * Created by Kinomora on 7/13/2017.
- */
 public class TileBewitchedSapling extends TileBasic {
     //Variables
     private static final String tileName = "tileBewitchedSapling";

@@ -59,8 +59,8 @@ public class Arboria implements IMod {
     public void postInit(IGameInstance game, IApiHandler apiHandler, IEventHandler eventHandler) {
         Log.info("Finished initializing " + MOD_NAME + " v" + VERSION + ".");
 
-        ArboriaGen.init();
         ArboriaTiles.init();
         ArboriaRecipes.init();
+        ArboriaGen.init();
     }
 }

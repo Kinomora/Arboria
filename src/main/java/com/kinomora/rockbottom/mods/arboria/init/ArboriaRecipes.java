@@ -4,9 +4,6 @@ import de.ellpeck.rockbottom.api.RockBottomAPI;
 import de.ellpeck.rockbottom.api.construction.BasicRecipe;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
 
-/**
- * Created by Kinomora on 7/30/2017.
- */
 public class ArboriaRecipes {
 
     public static void init(){

@@ -5,9 +5,9 @@ import com.kinomora.rockbottom.mods.arboria.tiles.TileBewitchedSapling;
 import com.kinomora.rockbottom.mods.arboria.tiles.TileDaybreakSapling;
 import com.kinomora.rockbottom.mods.arboria.tiles.TileNightfallSapling;
 import com.kinomora.rockbottom.mods.arboria.tiles.TileShadowlessSapling;
-import com.kinomora.rockbottom.mods.arboria.tiles.trees.*;
 import de.ellpeck.rockbottom.api.RockBottomAPI;
 import de.ellpeck.rockbottom.api.tile.Tile;
+import de.ellpeck.rockbottom.api.tile.TileBasic;
 
 public class ArboriaTiles {
 
@@ -32,22 +32,21 @@ public class ArboriaTiles {
         tileDaybreakSapling = new TileDaybreakSapling(RockBottomAPI.createRes(Arboria.instance, "tileDaybreakSapling")).register();
 
         //Wood
-        tileDuskWood = new TileDuskWood(RockBottomAPI.createRes(Arboria.instance, "tileDuskWood")).register();
-        tileMoonlitWood = new TileMoonlitWood(RockBottomAPI.createRes(Arboria.instance, "tileMoonlitWood")).register();
-        tileMorningWood = new TileMorningWood(RockBottomAPI.createRes(Arboria.instance, "tileMorningWood")).register();
-        tileSunnyWood = new TileSunnyWood(RockBottomAPI.createRes(Arboria.instance, "tileSunnyWood")).register();
+        tileDuskWood = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileDuskWood")).register();
+        tileMoonlitWood = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileMoonlitWood")).register();
+        tileMorningWood = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileMorningWood")).register();
+        tileSunnyWood = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileSunnyWood")).register();
 
         //Boards
-        tileDuskBoards = new TileDuskBoards(RockBottomAPI.createRes(Arboria.instance, "tileDuskBoards")).register();
-        tileMoonlitBoards = new TileMoonlitBoards(RockBottomAPI.createRes(Arboria.instance, "tileMoonlitBoards")).register();
-        tileMorningBoards = new TileMorningBoards(RockBottomAPI.createRes(Arboria.instance, "tileMorningBoards")).register();
-        tileSunnyBoards = new TileSunnyBoards(RockBottomAPI.createRes(Arboria.instance, "tileSunnyBoards")).register();
+        tileDuskBoards = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileDuskBoards")).register();
+        tileMoonlitBoards = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileMoonlitBoards")).register();
+        tileMorningBoards = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileMorningBoards")).register();
+        tileSunnyBoards = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileSunnyBoards")).register();
 
         //Leaves
-        tileDuskLeaves = new TileDuskLeaves(RockBottomAPI.createRes(Arboria.instance, "tileDuskLeaves")).register();
-        tileMoonlitLeaves = new TileMoonlitLeaves(RockBottomAPI.createRes(Arboria.instance, "tileMoonlitLeaves")).register();
-        tileMorningLeaves = new TileMorningLeaves(RockBottomAPI.createRes(Arboria.instance, "tileMorningLeaves")).register();
-        tileSunnyLeaves = new TileSunnyLeaves(RockBottomAPI.createRes(Arboria.instance, "tileSunnyLeaves")).register();
-
+        tileDuskLeaves = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileDuskLeaves")).register();
+        tileMoonlitLeaves = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileMoonlitLeaves")).register();
+        tileMorningLeaves = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileMorningLeaves")).register();
+        tileSunnyLeaves = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileSunnyLeaves")).register();
     }
 }
