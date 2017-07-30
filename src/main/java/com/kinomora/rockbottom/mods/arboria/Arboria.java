@@ -20,14 +20,6 @@ public class Arboria implements IMod {
 
     public static Arboria instance;
 
-    //Tiles (blocks)
-
-
-    //Items
-    //public static Item itemSapling;
-
-    //Other
-
     public Arboria() {
         instance = this;
     }
