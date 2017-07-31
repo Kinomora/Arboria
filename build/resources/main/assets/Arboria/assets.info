@@ -21,7 +21,7 @@ tex.tiles.tileDuskWood=/textures/tiles/duskWood.png
 tex.tiles.tileDuskBoards=/textures/tiles/duskBoards.png
 tex.tiles.tileDuskLeaves=/textures/tiles/duskLeaves.png
 
-tex.tiles.tileNode=/textures/tiles/tileNode/tileNode3.png
-anim.tiles.tileNode=/textures/tiles/tileNode/tileNode3.png,/textures/tiles/tileNode/tileNode.anim
+tex.tiles.tileNode=/textures/tiles/tileNode/tileNode.png
+anim.tiles.tileNode=/textures/tiles/tileNode/tileNode.png,/textures/tiles/tileNode/tileNode.anim
 
 
