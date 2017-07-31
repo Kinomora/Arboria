@@ -17,7 +17,7 @@ public class GenNode implements IWorldGenerator {
 
     @Override
     public void generate(IWorld world, IChunk chunk, Random rand) {
-        if (rand.nextInt(1) == 0) {
+        if (rand.nextInt(20) == 0) {
             int x = chunk.getX() + rand.nextInt(Constants.CHUNK_SIZE);
             int y = chunk.getY() + rand.nextInt(Constants.CHUNK_SIZE);
             if (world.getState(TileLayer.MAIN, x, y).getTile().isAir()) {

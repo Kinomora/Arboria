@@ -25,4 +25,8 @@ public class TileNodeRenderer extends DefaultTileRenderer {
     public void renderItem(IGameInstance game, IAssetManager manager, Graphics g, Tile tile, int meta, float x, float y, float scale, Color filter) {
         manager.getAnimation(this.texture).drawRow(0, x, y, scale, filter);
     }
+
+
+
+
 }
