@@ -1,7 +1,10 @@
 package com.kinomora.rockbottom.mods.arboria.init;
 
 import com.kinomora.rockbottom.mods.arboria.Arboria;
-import com.kinomora.rockbottom.mods.arboria.tiles.*;
+import com.kinomora.rockbottom.mods.arboria.tiles.MagicWood.*;
+import com.kinomora.rockbottom.mods.arboria.tiles.TileNode;
+import com.kinomora.rockbottom.mods.arboria.tiles.TileSipaPump;
+import com.kinomora.rockbottom.mods.arboria.tiles.TileSipaTank;
 import de.ellpeck.rockbottom.api.RockBottomAPI;
 import de.ellpeck.rockbottom.api.tile.Tile;
 import de.ellpeck.rockbottom.api.tile.TileBasic;

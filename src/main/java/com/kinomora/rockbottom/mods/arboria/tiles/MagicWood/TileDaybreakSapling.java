@@ -1,4 +1,4 @@
-package com.kinomora.rockbottom.mods.arboria.tiles;
+package com.kinomora.rockbottom.mods.arboria.tiles.MagicWood;
 
 import com.kinomora.rockbottom.mods.arboria.Arboria;
 import de.ellpeck.rockbottom.api.GameContent;
@@ -15,13 +15,13 @@ import de.ellpeck.rockbottom.api.world.TileLayer;
 import java.util.List;
 
 
-public class TileNightfallSapling extends TileBasic {
+public class TileDaybreakSapling extends TileBasic {
     //Variables
-    private static final String tileName = "tileNightfallSapling";
+    private static final String tileName = "tileDaybreakSapling";
     private static final IResourceName LOC = RockBottomAPI.createRes(Arboria.instance, "details." + tileName);
 
     //Constructor
-    public TileNightfallSapling(IResourceName name) {
+    public TileDaybreakSapling(IResourceName name) {
         super(name);
     }
 
@@ -68,4 +68,5 @@ public class TileNightfallSapling extends TileBasic {
     public boolean isFullTile() {
         return false;
     }
+
 }

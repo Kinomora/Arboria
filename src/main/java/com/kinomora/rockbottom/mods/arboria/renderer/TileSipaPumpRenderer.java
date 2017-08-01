@@ -1,5 +1,6 @@
 package com.kinomora.rockbottom.mods.arboria.renderer;
 
+import com.kinomora.rockbottom.mods.arboria.tiles.TileSipaPump;
 import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.assets.IAssetManager;
 import de.ellpeck.rockbottom.api.render.tile.DefaultTileRenderer;
@@ -18,7 +19,11 @@ public class TileSipaPumpRenderer extends DefaultTileRenderer {
 
     @Override
     public void render(IGameInstance game, IAssetManager manager, Graphics g, IWorld world, Tile tile, TileState state, int x, int y, TileLayer layer, float renderX, float renderY, float scale, Color[] light) {
-        manager.getAnimation(this.texture).drawRow(0, renderX, renderY, scale, light, Color.white);
+        int row;
+        if (world.getState(x, y).get(TileSipaPump.IS_RIGHT)) {
+            row = 0;
+        } else row = 1;
+        manager.getAnimation(this.texture).drawRow(row, renderX, renderY, scale, light, Color.white);
     }
 
     @Override
