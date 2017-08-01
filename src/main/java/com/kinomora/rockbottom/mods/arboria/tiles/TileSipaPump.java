@@ -33,6 +33,8 @@ public class TileSipaPump extends TileBasic {
         return (getLeft.getTile() instanceof TileMagicWood && getLeft.get(TileMagicWood.HAS_NODE)) || (getRight.getTile() instanceof TileMagicWood && getRight.get(TileMagicWood.HAS_NODE)) && super.canPlace(world, x, y, layer);
     }
 
+
+
     @Override
     public boolean canPlaceInLayer(TileLayer layer) {
         return layer == TileLayer.MAIN;
