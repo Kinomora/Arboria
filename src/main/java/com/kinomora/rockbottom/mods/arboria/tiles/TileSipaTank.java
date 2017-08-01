@@ -52,8 +52,6 @@ public class TileSipaTank extends TileBasic {
         return true;
     }
 
-
-
     @Override
     public boolean canPlaceInLayer(TileLayer layer) {
         return layer == TileLayer.MAIN;

@@ -34,12 +34,6 @@ public class TileSipaPump extends TileBasic {
     }
 
     @Override
-    public boolean onInteractWith(IWorld world, int x, int y, TileLayer layer, double mouseX, double mouseY, AbstractEntityPlayer player) {
-
-        return super.onInteractWith(world, x, y, layer, mouseX, mouseY, player);
-    }
-
-    @Override
     public boolean canPlaceInLayer(TileLayer layer) {
         return layer == TileLayer.MAIN;
     }
