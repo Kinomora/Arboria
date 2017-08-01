@@ -1,5 +1,6 @@
 package com.kinomora.rockbottom.mods.arboria.renderer;
 
+import com.kinomora.rockbottom.mods.arboria.init.ArboriaTiles;
 import com.kinomora.rockbottom.mods.arboria.tiles.TileSipaPump;
 import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.assets.IAssetManager;
@@ -23,11 +24,14 @@ public class TileSipaPumpRenderer extends DefaultTileRenderer {
         if (world.getState(x, y).get(TileSipaPump.IS_RIGHT)) {
             row = 0;
         } else row = 1;
-        manager.getAnimation(this.texture).drawRow(row, renderX, renderY, scale, light, Color.white);
+
+        if (world.getState(x, y-1).getTile() == ArboriaTiles.tileSipaTank) {
+            manager.getAnimation(this.texture).drawRow(row, renderX, renderY, scale, light, Color.white);
+        } else manager.getAnimation(this.texture).drawFrame(row, 0, renderX, renderY, scale, light, Color.white);
     }
 
     @Override
     public void renderItem(IGameInstance game, IAssetManager manager, Graphics g, Tile tile, int meta, float x, float y, float scale, Color filter) {
-        manager.getAnimation(this.texture).drawRow(0, x, y, scale, Color.white);
+        manager.getAnimation(this.texture).drawFrame(0, 0, x, y, scale, Color.white);
     }
 }
