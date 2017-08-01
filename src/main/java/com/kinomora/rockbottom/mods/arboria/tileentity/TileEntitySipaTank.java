@@ -4,9 +4,6 @@ import de.ellpeck.rockbottom.api.data.set.DataSet;
 import de.ellpeck.rockbottom.api.tile.entity.TileEntity;
 import de.ellpeck.rockbottom.api.world.IWorld;
 
-/**
- * Created by Kinomora on 7/31/2017.
- */
 public class TileEntitySipaTank extends TileEntity {
 
     private static final float maxSipa = 8000;

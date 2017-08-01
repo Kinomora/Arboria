@@ -1,12 +1,13 @@
 package com.kinomora.rockbottom.mods.arboria.tiles;
 
 import com.kinomora.rockbottom.mods.arboria.Arboria;
-import com.kinomora.rockbottom.mods.arboria.init.ArboriaTiles;
+import com.kinomora.rockbottom.mods.arboria.renderer.TileSipaTankRenderer;
 import com.kinomora.rockbottom.mods.arboria.tileentity.TileEntitySipaTank;
 import de.ellpeck.rockbottom.api.RockBottomAPI;
 import de.ellpeck.rockbottom.api.assets.IAssetManager;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
+import de.ellpeck.rockbottom.api.render.tile.ITileRenderer;
 import de.ellpeck.rockbottom.api.tile.TileBasic;
 import de.ellpeck.rockbottom.api.tile.entity.TileEntity;
 import de.ellpeck.rockbottom.api.util.BoundBox;
@@ -17,9 +18,6 @@ import org.newdawn.slick.util.Log;
 
 import java.util.List;
 
-/**
- * Created by Kinomora on 7/31/2017.
- */
 public class TileSipaTank extends TileBasic {
 
     //Variables
@@ -28,16 +26,6 @@ public class TileSipaTank extends TileBasic {
 
     public TileSipaTank(IResourceName name) {
         super(name);
-
-    }
-
-    @Override
-    public boolean canPlace(IWorld world, int x, int y, TileLayer layer) {
-        if (world.getState(x , y + 1).getTile() == ArboriaTiles.tileSipaPump){
-            return super.canPlace(world, x, y, layer);
-        } else {
-            return false;
-        }
     }
 
     @Override
@@ -65,6 +53,11 @@ public class TileSipaTank extends TileBasic {
     @Override
     public boolean canProvideTileEntity() {
         return true;
+    }
+
+    @Override
+    protected ITileRenderer createRenderer(IResourceName name) {
+        return new TileSipaTankRenderer(name);
     }
 
     @Override

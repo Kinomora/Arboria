@@ -24,7 +24,10 @@ tex.tiles.tileDuskLeaves=/textures/tiles/MagicWood/duskLeaves.png
 tex.tiles.tileNode=/textures/tiles/tileNode/tileNode.png
 anim.tiles.tileNode=/textures/tiles/tileNode/tileNode.png,/textures/tiles/tileNode/tileNode.anim
 
-tex.tiles.tileSipaTank=/textures/tiles/sipaTank.png
+tex.tiles.tileSipaTank=sub./textures/tiles/tileSipaTank/sipaTank.png,0,0,12,12
+tex.tiles.tileSipaTank.sipa=sub./textures/tiles/tileSipaTank/sipaTank.png,14,1,8,10
+
+
 
 tex.tiles.tileSipaPump=/textures/tiles/tileSipaPump/tileSipaPump.png
 anim.tiles.tileSipaPump=/textures/tiles/tileSipaPump/tileSipaPump.png,/textures/tiles/tileSipaPump/tileSipaPump.anim
