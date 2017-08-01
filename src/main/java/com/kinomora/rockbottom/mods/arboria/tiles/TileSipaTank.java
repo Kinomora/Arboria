@@ -43,7 +43,7 @@ public class TileSipaTank extends TileBasic {
     @Override
     public boolean onInteractWith(IWorld world, int x, int y, TileLayer layer, double mouseX, double mouseY, AbstractEntityPlayer player) {
         TileEntitySipaTank tank = world.getTileEntity(x,y,TileEntitySipaTank.class);
-        Log.debug("Current sipa level: " + tank.currentSipa);
+        Log.debug("Current sipa level: " + tank.getCurrentSipa());
         return true;
     }
 

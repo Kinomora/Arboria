@@ -44,7 +44,7 @@ public class TileNode extends TileBasic {
     @Override
     public boolean onInteractWith(IWorld world, int x, int y, TileLayer layer, double mouseX, double mouseY, AbstractEntityPlayer player) {
         TileEntityNode node = world.getTileEntity(x,y,TileEntityNode.class);
-        Log.debug("Current sipa level: " + node.currentSipa);
+        Log.debug("Current sipa level: " + node.getCurrentSipa());
         return true;
     }
 

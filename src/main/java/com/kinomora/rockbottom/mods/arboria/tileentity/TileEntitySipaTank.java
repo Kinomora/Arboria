@@ -9,16 +9,47 @@ import de.ellpeck.rockbottom.api.world.IWorld;
  */
 public class TileEntitySipaTank extends TileEntity {
 
-    public static int currentSipa = 0;
+    private static final float maxSipa = 8000;
+    private static float currentSipa = 0;
 
     public TileEntitySipaTank(IWorld world, int x, int y) {
         super(world, x, y);
     }
 
+    public int getCurrentSipa(){
+        return (int)currentSipa;
+    }
+
+    public int getMaxSipa(){
+        return (int)maxSipa;
+    }
+
+    public float getSipaPercentage(){
+        return currentSipa/maxSipa;
+    }
+
+    public boolean addSipa(int amount){
+        if(currentSipa + amount <= maxSipa){
+            currentSipa += amount;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean removeSipa(int amount){
+        if(currentSipa - amount >= 0){
+            currentSipa -= amount;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     @Override
     public void save(DataSet set, boolean forSync) {
         super.save(set, forSync);
-        set.addInt("currentSipa", this.currentSipa);
+        set.addInt("currentSipa", this.getCurrentSipa());
     }
 
     @Override
