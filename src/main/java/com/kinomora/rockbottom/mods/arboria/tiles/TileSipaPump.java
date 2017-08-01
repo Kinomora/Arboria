@@ -1,7 +1,9 @@
 package com.kinomora.rockbottom.mods.arboria.tiles;
 
 import com.kinomora.rockbottom.mods.arboria.renderer.TileSipaPumpRenderer;
+import com.kinomora.rockbottom.mods.arboria.tileentity.TileEntitySipaTank;
 import com.kinomora.rockbottom.mods.arboria.tiles.MagicWood.TileMagicWood;
+import de.ellpeck.rockbottom.api.RockBottomAPI;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
 import de.ellpeck.rockbottom.api.render.tile.ITileRenderer;
@@ -12,6 +14,8 @@ import de.ellpeck.rockbottom.api.util.BoundBox;
 import de.ellpeck.rockbottom.api.util.reg.IResourceName;
 import de.ellpeck.rockbottom.api.world.IWorld;
 import de.ellpeck.rockbottom.api.world.TileLayer;
+import org.newdawn.slick.Input;
+import org.newdawn.slick.util.Log;
 
 public class TileSipaPump extends TileBasic {
 
@@ -31,6 +35,17 @@ public class TileSipaPump extends TileBasic {
         TileState getLeft = world.getState(x-1, y);
         TileState getRight = world.getState(x+1, y);
         return (getLeft.getTile() instanceof TileMagicWood && getLeft.get(TileMagicWood.HAS_NODE)) || (getRight.getTile() instanceof TileMagicWood && getRight.get(TileMagicWood.HAS_NODE)) && super.canPlace(world, x, y, layer);
+    }
+
+    @Override
+    public boolean onInteractWith(IWorld world, int x, int y, TileLayer layer, double mouseX, double mouseY, AbstractEntityPlayer player) {
+        if(RockBottomAPI.getGame().getInput().isKeyDown(Input.KEY_LCONTROL)){
+            world.getTileEntity(x,y, TileEntitySipaTank.class).removeSipa(100);
+        } else {
+            world.getTileEntity(x,y, TileEntitySipaTank.class).addSipa(100);
+        }
+        Log.debug("Current sipa in tank is: " + world.getTileEntity(x,y, TileEntitySipaTank.class).getCurrentSipa());
+        return super.onInteractWith(world, x, y, layer, mouseX, mouseY, player);
     }
 
     @Override
