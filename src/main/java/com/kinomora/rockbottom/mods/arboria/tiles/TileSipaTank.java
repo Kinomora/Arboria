@@ -14,6 +14,7 @@ import de.ellpeck.rockbottom.api.util.BoundBox;
 import de.ellpeck.rockbottom.api.util.reg.IResourceName;
 import de.ellpeck.rockbottom.api.world.IWorld;
 import de.ellpeck.rockbottom.api.world.TileLayer;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.util.Log;
 
 import java.util.List;
@@ -30,10 +31,16 @@ public class TileSipaTank extends TileBasic {
 
     @Override
     public boolean onInteractWith(IWorld world, int x, int y, TileLayer layer, double mouseX, double mouseY, AbstractEntityPlayer player) {
-        TileEntitySipaTank tank = world.getTileEntity(x,y,TileEntitySipaTank.class);
-        Log.debug("Current sipa level: " + tank.getCurrentSipa());
+        if(RockBottomAPI.getGame().getInput().isKeyDown(Input.KEY_LCONTROL)){
+            world.getTileEntity(x,y, TileEntitySipaTank.class).removeSipa(100);
+        } else {
+            world.getTileEntity(x,y, TileEntitySipaTank.class).addSipa(100);
+        }
+        Log.debug("Current sipa in tank is: " + world.getTileEntity(x,y, TileEntitySipaTank.class).getCurrentSipa());
         return true;
     }
+
+
 
     @Override
     public boolean canPlaceInLayer(TileLayer layer) {
