@@ -1,5 +1,6 @@
 package com.kinomora.rockbottom.mods.arboria.tileentity;
 
+import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.data.set.DataSet;
 import de.ellpeck.rockbottom.api.tile.entity.TileEntity;
 import de.ellpeck.rockbottom.api.world.IWorld;
@@ -13,20 +14,32 @@ public class TileEntitySipaTank extends TileEntity {
         super(world, x, y);
     }
 
-    public int getCurrentSipa(){
-        return (int)currentSipa;
+    @Override
+    public void update(IGameInstance game) {
+        super.update(game);
+        if(world.getWorldInfo().currentWorldTime % 40 == 0){
+            doSipaCheck();
+        }
     }
 
-    public int getMaxSipa(){
-        return (int)maxSipa;
+    private void doSipaCheck() {
+        //Log.debug("Suh dude.");
     }
 
-    public float getSipaPercentage(){
-        return currentSipa/maxSipa;
+    public int getCurrentSipa() {
+        return (int) currentSipa;
     }
 
-    public boolean addSipa(int amount){
-        if(currentSipa + amount <= maxSipa){
+    public int getMaxSipa() {
+        return (int) maxSipa;
+    }
+
+    public float getSipaPercentage() {
+        return currentSipa / maxSipa;
+    }
+
+    public boolean addSipa(int amount) {
+        if (currentSipa + amount <= maxSipa) {
             currentSipa += amount;
             return true;
         } else {
@@ -34,8 +47,8 @@ public class TileEntitySipaTank extends TileEntity {
         }
     }
 
-    public boolean removeSipa(int amount){
-        if(currentSipa - amount >= 0){
+    public boolean removeSipa(int amount) {
+        if (currentSipa - amount >= 0) {
             currentSipa -= amount;
             return true;
         } else {
