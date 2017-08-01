@@ -25,7 +25,7 @@ public class TileMagicWoodRenderer extends DefaultTileRenderer {
         super.render(game, manager, g, world, tile, state, x, y, layer, renderX, renderY, scale, light);
 
         if (world.getState(layer, x, y).get(TileMagicWood.HAS_NODE)) {
-            manager.getAnimation(tileNode).drawRow(0, renderX, renderY, scale, light, Color.yellow);
+            manager.getAnimation(tileNode).drawRow(0, renderX, renderY, scale, light, TileNodeRenderer.NODE);
         }
     }
 }

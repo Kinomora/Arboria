@@ -12,21 +12,20 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 
 public class TileNodeRenderer extends DefaultTileRenderer {
+
+    public static final Color NODE = new Color(1.0f,1.0f,1.0f,0.35f);
+
     public TileNodeRenderer(IResourceName texture) {
         super(texture);
     }
 
     @Override
     public void render(IGameInstance game, IAssetManager manager, Graphics g, IWorld world, Tile tile, TileState state, int x, int y, TileLayer layer, float renderX, float renderY, float scale, Color[] light) {
-        manager.getAnimation(this.texture).drawRow(0, renderX, renderY, scale, light, Color.yellow);
+        manager.getAnimation(this.texture).drawRow(0, renderX, renderY, scale, light, NODE);
     }
 
     @Override
     public void renderItem(IGameInstance game, IAssetManager manager, Graphics g, Tile tile, int meta, float x, float y, float scale, Color filter) {
         manager.getAnimation(this.texture).drawRow(0, x, y, scale, filter);
     }
-
-
-
-
 }
