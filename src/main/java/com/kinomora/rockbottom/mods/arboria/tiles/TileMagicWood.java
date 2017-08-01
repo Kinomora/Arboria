@@ -3,10 +3,12 @@ package com.kinomora.rockbottom.mods.arboria.tiles;
 import com.kinomora.rockbottom.mods.arboria.renderer.TileMagicWoodRenderer;
 import com.kinomora.rockbottom.mods.arboria.tileentity.TileEntityNode;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
+import de.ellpeck.rockbottom.api.item.ItemInstance;
 import de.ellpeck.rockbottom.api.render.tile.ITileRenderer;
 import de.ellpeck.rockbottom.api.tile.TileBasic;
 import de.ellpeck.rockbottom.api.tile.entity.TileEntity;
 import de.ellpeck.rockbottom.api.tile.state.BoolProp;
+import de.ellpeck.rockbottom.api.tile.state.TileState;
 import de.ellpeck.rockbottom.api.util.BoundBox;
 import de.ellpeck.rockbottom.api.util.Util;
 import de.ellpeck.rockbottom.api.util.reg.IResourceName;
@@ -16,7 +18,7 @@ import org.newdawn.slick.util.Log;
 
 public class TileMagicWood extends TileBasic {
 
-    public static final BoolProp IS_NATURAL = new BoolProp("isNarutal", false);
+    public static final BoolProp IS_NATURAL = new BoolProp("isNatural", false);
     public static final BoolProp HAS_NODE = new BoolProp("hasNode", false);
 
     public TileMagicWood(IResourceName name) {
@@ -25,11 +27,11 @@ public class TileMagicWood extends TileBasic {
     }
 
     @Override
-    public void onAdded(IWorld world, int x, int y, TileLayer layer) {
+    public TileState getPlacementState(IWorld world, int x, int y, TileLayer layer, ItemInstance instance, AbstractEntityPlayer placer) {
         if (Util.RANDOM.nextInt(3) == 1) {
-            world.setState(layer, x, y, this.getDefState().prop(HAS_NODE, true));
+            return this.getDefState().prop(HAS_NODE, true);
         }
-        super.onAdded(world, x, y, layer);
+        return super.getPlacementState(world, x, y, layer, instance, placer);
     }
 
     @Override
@@ -44,13 +46,14 @@ public class TileMagicWood extends TileBasic {
 
     @Override
     public TileEntity provideTileEntity(IWorld world, int x, int y) {
-        return new TileEntityNode(world, x, y);
+        return world.getState(x,y).get(HAS_NODE) ? new TileEntityNode(world,x,y) : null;
     }
 
     @Override
     public boolean onInteractWith(IWorld world, int x, int y, TileLayer layer, double mouseX, double mouseY, AbstractEntityPlayer player) {
         TileEntityNode node = world.getTileEntity(x,y,TileEntityNode.class);
-        Log.debug("Current sipa level: " + node.currentSipa);
+        if(node != null)
+            Log.debug("Current sipa level: " + node.currentSipa);
         return true;
     }
 

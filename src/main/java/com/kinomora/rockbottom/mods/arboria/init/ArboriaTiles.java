@@ -22,6 +22,10 @@ public class ArboriaTiles {
 
     public static Tile tileNode;
 
+    //Sipa stuff
+    public static Tile tileSipaTank;
+    public static Tile tileSipaPump;
+
     public static void init() {
 
         //Saplings
@@ -49,5 +53,7 @@ public class ArboriaTiles {
         tileSunnyLeaves = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileSunnyLeaves")).register();
 
         tileNode = new TileNode(RockBottomAPI.createRes(Arboria.instance, "tileNode")).register();
+        tileSipaTank = new TileSipaTank(RockBottomAPI.createRes(Arboria.instance, "tileSipaTank")).register();
+        tileSipaPump = new TileSipaPump(RockBottomAPI.createRes(Arboria.instance, "tileSipaPump")).register();
     }
 }

@@ -24,4 +24,7 @@ tex.tiles.tileDuskLeaves=/textures/tiles/duskLeaves.png
 tex.tiles.tileNode=/textures/tiles/tileNode/tileNode.png
 anim.tiles.tileNode=/textures/tiles/tileNode/tileNode.png,/textures/tiles/tileNode/tileNode.anim
 
+tex.tiles.tileSipaTank=/textures/tiles/sipaTank.png
 
+tex.tiles.tileSipaPump=/textures/tiles/tileSipaPump/tileSipaPump.png
+anim.tiles.tileSipaPump=/textures/tiles/tileSipaPump/tileSipaPump.png,/textures/tiles/tileSipaPump/tileSipaPump.anim
