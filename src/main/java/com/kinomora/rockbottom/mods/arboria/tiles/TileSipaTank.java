@@ -40,8 +40,6 @@ public class TileSipaTank extends TileBasic {
         return true;
     }
 
-
-
     @Override
     public boolean canPlace(IWorld world, int x, int y, TileLayer layer) {
         return world.getState(x, y - 1).getTile().isFullTile() && super.canPlace(world, x, y, layer);
