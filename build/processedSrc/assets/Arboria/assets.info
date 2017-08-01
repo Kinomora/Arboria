@@ -25,7 +25,7 @@ tex.tiles.tileNode=/textures/tiles/tileNode/tileNode.png
 anim.tiles.tileNode=/textures/tiles/tileNode/tileNode.png,/textures/tiles/tileNode/tileNode.anim
 
 tex.tiles.tileSipaTank=sub./textures/tiles/tileSipaTank/sipaTank.png,0,0,12,12
-tex.tiles.tileSipaTank.sipa=sub./textures/tiles/tileSipaTank/sipaTank.png,12,0,12,12
+tex.tiles.tileSipaTank.sipa=sub./textures/tiles/tileSipaTank/sipaTank.png,14,1,8,10
 
 
 

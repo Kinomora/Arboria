@@ -31,16 +31,26 @@ public class TileSipaTank extends TileBasic {
 
     @Override
     public boolean onInteractWith(IWorld world, int x, int y, TileLayer layer, double mouseX, double mouseY, AbstractEntityPlayer player) {
-        if(RockBottomAPI.getGame().getInput().isKeyDown(Input.KEY_LCONTROL)){
-            world.getTileEntity(x,y, TileEntitySipaTank.class).removeSipa(100);
+        if (RockBottomAPI.getGame().getInput().isKeyDown(Input.KEY_LCONTROL)) {
+            world.getTileEntity(x, y, TileEntitySipaTank.class).removeSipa(1000);
         } else {
-            world.getTileEntity(x,y, TileEntitySipaTank.class).addSipa(100);
+            world.getTileEntity(x, y, TileEntitySipaTank.class).addSipa(1000);
         }
-        Log.debug("Current sipa in tank is: " + world.getTileEntity(x,y, TileEntitySipaTank.class).getCurrentSipa());
+        Log.debug("Current sipa in tank is: " + world.getTileEntity(x, y, TileEntitySipaTank.class).getCurrentSipa());
         return true;
     }
 
 
+
+    @Override
+    public boolean canPlace(IWorld world, int x, int y, TileLayer layer) {
+        return world.getState(x, y - 1).getTile().isFullTile() && super.canPlace(world, x, y, layer);
+    }
+
+    @Override
+    public boolean canStay(IWorld world, int x, int y, TileLayer layer, int changedX, int changedY, TileLayer changedLayer) {
+        return world.getState(x, y - 1).getTile().isFullTile() && super.canStay(world, x, y, layer, changedX, changedY, changedLayer);
+    }
 
     @Override
     public boolean canPlaceInLayer(TileLayer layer) {

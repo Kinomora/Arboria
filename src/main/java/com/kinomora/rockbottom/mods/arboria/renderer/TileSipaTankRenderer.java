@@ -1,7 +1,9 @@
 package com.kinomora.rockbottom.mods.arboria.renderer;
 
+import com.kinomora.rockbottom.mods.arboria.tileentity.TileEntitySipaTank;
 import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.assets.IAssetManager;
+import de.ellpeck.rockbottom.api.assets.tex.Texture;
 import de.ellpeck.rockbottom.api.render.tile.DefaultTileRenderer;
 import de.ellpeck.rockbottom.api.tile.Tile;
 import de.ellpeck.rockbottom.api.tile.state.TileState;
@@ -12,7 +14,6 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 
 public class TileSipaTankRenderer extends DefaultTileRenderer {
-
 
 
     public TileSipaTankRenderer(IResourceName texture) {
@@ -27,23 +28,19 @@ public class TileSipaTankRenderer extends DefaultTileRenderer {
 
         //Render Sipa in Tank
         IResourceName sipa = this.texture.addSuffix(".sipa");
-        float sipaPerc;
+        Texture tex = manager.getTexture(sipa);
 
+        float sipaPerc = world.getTileEntity(x, y, TileEntitySipaTank.class).getSipaPercentage();
 
-        float p = 1/12f;
+        float p = 1 / 12f;
+        int pixelRender = (int) (sipaPerc * 10);
 
-        float startRenderX = renderX + scale*2*p;
-        float endRenderX = renderX + scale*10*p;
+        float startRenderX = renderX + scale * 2 * p;
+        float endRenderX = renderX + scale * 10 * p;
 
-        float startRenderY = renderY + scale*11*p;
-        float endRenderY;
+        float endRenderY = renderY + scale * 11 * p;
+        float startRenderY = renderY + scale * (11 - pixelRender) * p;
 
-
-
-
-
-
-
-        manager.getTexture(sipa).drawWithLight(startRenderX, startRenderY , endRenderX, renderY+scale, 0, 6, 12,  12, light, Color.white);
+        manager.getTexture(sipa).drawWithLight(startRenderX, startRenderY, endRenderX, endRenderY, 0, 10 - pixelRender, tex.getWidth(), tex.getHeight(), light, Color.white);
     }
 }
