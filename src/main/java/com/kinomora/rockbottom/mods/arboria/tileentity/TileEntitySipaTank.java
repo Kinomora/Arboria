@@ -7,8 +7,8 @@ import de.ellpeck.rockbottom.api.world.IWorld;
 
 public class TileEntitySipaTank extends TileEntity {
 
-    public static final float maxSipa = 8000;
-    public float currentSipa = 0;
+    private static final float maxSipa = 8000;
+    private float currentSipa = 0;
 
     public TileEntitySipaTank(IWorld world, int x, int y) {
         super(world, x, y);
@@ -17,10 +17,12 @@ public class TileEntitySipaTank extends TileEntity {
     @Override
     public void update(IGameInstance game) {
         super.update(game);
-        if (world.getWorldInfo().currentWorldTime % 40 == 0) {
+        if(world.getWorldInfo().currentWorldTime % 40 == 0){
             doSipaCheck();
         }
     }
+
+
 
     private void doSipaCheck() {
         //Log.debug("Suh dude.");
@@ -43,7 +45,6 @@ public class TileEntitySipaTank extends TileEntity {
             currentSipa += amount;
             return true;
         } else {
-            currentSipa = maxSipa;
             return false;
         }
     }
@@ -53,7 +54,6 @@ public class TileEntitySipaTank extends TileEntity {
             currentSipa -= amount;
             return true;
         } else {
-            currentSipa=0;
             return false;
         }
     }

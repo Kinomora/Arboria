@@ -5,11 +5,9 @@ import com.kinomora.rockbottom.mods.arboria.renderer.TileSipaTankRenderer;
 import com.kinomora.rockbottom.mods.arboria.tileentity.TileEntitySipaTank;
 import de.ellpeck.rockbottom.api.RockBottomAPI;
 import de.ellpeck.rockbottom.api.assets.IAssetManager;
-import de.ellpeck.rockbottom.api.data.set.DataSet;
 import de.ellpeck.rockbottom.api.entity.Entity;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
-import de.ellpeck.rockbottom.api.item.ItemTile;
 import de.ellpeck.rockbottom.api.render.tile.ITileRenderer;
 import de.ellpeck.rockbottom.api.tile.TileBasic;
 import de.ellpeck.rockbottom.api.tile.entity.TileEntity;
@@ -20,7 +18,6 @@ import de.ellpeck.rockbottom.api.world.TileLayer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.util.Log;
 
-import java.util.Collections;
 import java.util.List;
 
 public class TileSipaTank extends TileBasic {
@@ -45,28 +42,6 @@ public class TileSipaTank extends TileBasic {
     }
 
     @Override
-    protected ItemTile createItemTile() {
-        return new ItemTile(this.name) {
-            @Override
-            public boolean isDataSensitive(ItemInstance instance) {
-                return true;
-            }
-        };
-    }
-
-    @Override
-    public List<ItemInstance> getDrops(IWorld world, int x, int y, TileLayer layer, Entity destroyer) {
-        ItemInstance instance = new ItemInstance(this);
-        DataSet data = new DataSet();
-        TileEntitySipaTank tile = world.getTileEntity(x, y, TileEntitySipaTank.class);
-        if (tile != null) {
-            data.addInt("sipa", (int) tile.currentSipa);
-        }
-        instance.setAdditionalData(data);
-        return Collections.singletonList(instance);
-    }
-
-    @Override
     public boolean canPlace(IWorld world, int x, int y, TileLayer layer) {
         return world.getState(x, y - 1).getTile().isFullTile() && super.canPlace(world, x, y, layer);
     }
@@ -77,15 +52,9 @@ public class TileSipaTank extends TileBasic {
     }
 
     @Override
-    public void doPlace(IWorld world, int x, int y, TileLayer layer, ItemInstance instance, AbstractEntityPlayer placer) {
-        super.doPlace(world, x, y, layer, instance, placer);
-        DataSet data = instance.getAdditionalData();
-        if (data != null) {
-            TileEntitySipaTank tile = world.getTileEntity(x, y, TileEntitySipaTank.class);
-            if (tile != null) {
-                tile.addSipa(data.getInt("sipa"));
-            }
-        }
+    public List<ItemInstance> getDrops(IWorld world, int x, int y, TileLayer layer, Entity destroyer) {
+        return super.getDrops(world, x, y, layer, destroyer);
+
     }
 
     @Override
