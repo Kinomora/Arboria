@@ -56,7 +56,7 @@ public class ArboriaTiles {
         tileSunnyLeaves = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileSunnyLeaves")).register();
 
         tileNode = new TileNode(RockBottomAPI.createRes(Arboria.instance, "tileNode")).register();
-        tileSipaTank = new TileSipaTank(RockBottomAPI.createRes(Arboria.instance, "tileSipaTank")).register();
-        tileSipaPump = new TileSipaPump(RockBottomAPI.createRes(Arboria.instance, "tileSipaPump")).register();
+        tileSipaTank = new TileSipaTank(RockBottomAPI.createRes(Arboria.instance, "tileSipaTank")).register().setForceDrop();
+        tileSipaPump = new TileSipaPump(RockBottomAPI.createRes(Arboria.instance, "tileSipaPump")).register().setForceDrop();
     }
 }

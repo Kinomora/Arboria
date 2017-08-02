@@ -33,7 +33,6 @@ public class TileMagicWood extends TileBasic {
         }
         return super.getPlacementState(world, x, y, layer, instance, placer);
     }
-
     @Override
     public BoundBox getBoundBox(IWorld world, int x, int y) {
         return world.getState(x, y).get(IS_NATURAL) ? null : DEFAULT_BOUNDS;

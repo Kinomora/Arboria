@@ -4,6 +4,8 @@ import com.kinomora.rockbottom.mods.arboria.tileentity.TileEntitySipaTank;
 import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.assets.IAssetManager;
 import de.ellpeck.rockbottom.api.assets.tex.Texture;
+import de.ellpeck.rockbottom.api.data.set.DataSet;
+import de.ellpeck.rockbottom.api.item.ItemInstance;
 import de.ellpeck.rockbottom.api.render.tile.DefaultTileRenderer;
 import de.ellpeck.rockbottom.api.tile.Tile;
 import de.ellpeck.rockbottom.api.tile.state.TileState;
@@ -12,6 +14,7 @@ import de.ellpeck.rockbottom.api.world.IWorld;
 import de.ellpeck.rockbottom.api.world.TileLayer;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.util.Log;
 
 public class TileSipaTankRenderer extends DefaultTileRenderer {
 
@@ -42,5 +45,36 @@ public class TileSipaTankRenderer extends DefaultTileRenderer {
         float startRenderY = renderY + scale * (11 - pixelRender) * p;
 
         manager.getTexture(sipa).drawWithLight(startRenderX, startRenderY, endRenderX, endRenderY, 0, 10 - pixelRender, tex.getWidth(), tex.getHeight(), light, Color.white);
+    }
+
+    @Override
+    public void renderItem(IGameInstance game, IAssetManager manager, Graphics g, Tile tile, int meta, float x, float y, float scale, Color filter) {
+        manager.getTexture(this.texture).draw(x, y, scale, scale, filter);
+        IResourceName sipa = this.texture.addSuffix(".sipa");
+        Texture tex = manager.getTexture(sipa);
+
+        float sipaPerc = 0;
+        int sipaAmount;
+        ItemInstance instance = new ItemInstance(tile);
+
+        DataSet data = instance.getAdditionalData();
+        if (data != null) {
+            sipaAmount = data.getInt("sipa");
+            sipaPerc = sipaAmount / 8000;
+            Log.debug(sipaPerc + "..." + sipaAmount);
+        }
+
+        float p = 1 / 12f;
+        int pixelRender = (int) (sipaPerc * 10);
+
+        float startRenderX = x + scale * 2 * p;
+        float endRenderX = x + scale * 10 * p;
+
+        float endRenderY = y + scale * 11 * p;
+        float startRenderY = y + scale * (11 - pixelRender) * p;
+
+
+
+        manager.getTexture(sipa).draw(startRenderX, startRenderY, endRenderX, endRenderY, 0, 10 - pixelRender, tex.getWidth(), tex.getHeight(), filter);
     }
 }

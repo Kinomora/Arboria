@@ -9,7 +9,7 @@ import de.ellpeck.rockbottom.api.world.IWorld;
 public class TileEntityNode extends TileEntity {
 
     private static final float maxSipa = 70;
-    private static float currentSipa = 0;
+    private float currentSipa = 0;
 
     public TileEntityNode(IWorld world, int x, int y) {
         super(world, x, y);
