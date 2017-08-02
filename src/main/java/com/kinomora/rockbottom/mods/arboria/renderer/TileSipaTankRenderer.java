@@ -14,7 +14,6 @@ import de.ellpeck.rockbottom.api.world.IWorld;
 import de.ellpeck.rockbottom.api.world.TileLayer;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.util.Log;
 
 public class TileSipaTankRenderer extends DefaultTileRenderer {
 
@@ -56,12 +55,10 @@ public class TileSipaTankRenderer extends DefaultTileRenderer {
         float sipaPerc = 0;
         int sipaAmount;
         ItemInstance instance = new ItemInstance(tile);
-
         DataSet data = instance.getAdditionalData();
         if (data != null) {
             sipaAmount = data.getInt("sipa");
             sipaPerc = sipaAmount / 8000;
-            Log.debug(sipaPerc + "..." + sipaAmount);
         }
 
         float p = 1 / 12f;
@@ -73,8 +70,6 @@ public class TileSipaTankRenderer extends DefaultTileRenderer {
         float endRenderY = y + scale * 11 * p;
         float startRenderY = y + scale * (11 - pixelRender) * p;
 
-
-
-        manager.getTexture(sipa).draw(startRenderX, startRenderY, endRenderX, endRenderY, 0, 10 - pixelRender, tex.getWidth(), tex.getHeight(), filter);
+        manager.getTexture(sipa).draw(startRenderX, startRenderY, endRenderX , endRenderY, 0, 10 - pixelRender, tex.getWidth(), tex.getHeight(), filter);
     }
 }
