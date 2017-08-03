@@ -3,14 +3,11 @@ package com.kinomora.rockbottom.mods.arboria.tiles.MagicWood;
 import com.kinomora.rockbottom.mods.arboria.renderer.TileMagicWoodRenderer;
 import com.kinomora.rockbottom.mods.arboria.tileentity.TileEntityNode;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
-import de.ellpeck.rockbottom.api.item.ItemInstance;
 import de.ellpeck.rockbottom.api.render.tile.ITileRenderer;
 import de.ellpeck.rockbottom.api.tile.TileBasic;
 import de.ellpeck.rockbottom.api.tile.entity.TileEntity;
 import de.ellpeck.rockbottom.api.tile.state.BoolProp;
-import de.ellpeck.rockbottom.api.tile.state.TileState;
 import de.ellpeck.rockbottom.api.util.BoundBox;
-import de.ellpeck.rockbottom.api.util.Util;
 import de.ellpeck.rockbottom.api.util.reg.IResourceName;
 import de.ellpeck.rockbottom.api.world.IWorld;
 import de.ellpeck.rockbottom.api.world.TileLayer;
@@ -26,13 +23,6 @@ public class TileMagicWood extends TileBasic {
         this.addProps(IS_NATURAL, HAS_NODE);
     }
 
-    @Override
-    public TileState getPlacementState(IWorld world, int x, int y, TileLayer layer, ItemInstance instance, AbstractEntityPlayer placer) {
-        if (Util.RANDOM.nextInt(3) == 1) {
-            return this.getDefState().prop(HAS_NODE, true);
-        }
-        return super.getPlacementState(world, x, y, layer, instance, placer);
-    }
     @Override
     public BoundBox getBoundBox(IWorld world, int x, int y) {
         return world.getState(x, y).get(IS_NATURAL) ? null : DEFAULT_BOUNDS;
