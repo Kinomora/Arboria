@@ -5,9 +5,11 @@ import com.kinomora.rockbottom.mods.arboria.renderer.TileSipaTankRenderer;
 import com.kinomora.rockbottom.mods.arboria.tileentity.TileEntitySipaTank;
 import de.ellpeck.rockbottom.api.RockBottomAPI;
 import de.ellpeck.rockbottom.api.assets.IAssetManager;
+import de.ellpeck.rockbottom.api.data.set.DataSet;
 import de.ellpeck.rockbottom.api.entity.Entity;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
+import de.ellpeck.rockbottom.api.item.ItemTile;
 import de.ellpeck.rockbottom.api.render.tile.ITileRenderer;
 import de.ellpeck.rockbottom.api.tile.TileBasic;
 import de.ellpeck.rockbottom.api.tile.entity.TileEntity;
@@ -18,6 +20,7 @@ import de.ellpeck.rockbottom.api.world.TileLayer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.util.Log;
 
+import java.util.Collections;
 import java.util.List;
 
 public class TileSipaTank extends TileBasic {
@@ -34,11 +37,21 @@ public class TileSipaTank extends TileBasic {
     public boolean onInteractWith(IWorld world, int x, int y, TileLayer layer, double mouseX, double mouseY, AbstractEntityPlayer player) {
         if (RockBottomAPI.getGame().getInput().isKeyDown(Input.KEY_LCONTROL)) {
             world.getTileEntity(x, y, TileEntitySipaTank.class).removeSipa(1000);
-        } else if (RockBottomAPI.getGame().getInput().isKeyDown(Input.KEY_RCONTROL)){
+        } else if (RockBottomAPI.getGame().getInput().isKeyDown(Input.KEY_RCONTROL)) {
             world.getTileEntity(x, y, TileEntitySipaTank.class).addSipa(1000);
         }
         Log.debug("Current sipa in tank is: " + world.getTileEntity(x, y, TileEntitySipaTank.class).getCurrentSipa());
         return true;
+    }
+
+    @Override
+    protected ItemTile createItemTile() {
+        return new ItemTile(this.name) {
+            @Override
+            public boolean isDataSensitive(ItemInstance instance) {
+                return true;
+            }
+        };
     }
 
     @Override
@@ -53,8 +66,14 @@ public class TileSipaTank extends TileBasic {
 
     @Override
     public List<ItemInstance> getDrops(IWorld world, int x, int y, TileLayer layer, Entity destroyer) {
-        return super.getDrops(world, x, y, layer, destroyer);
-
+        ItemInstance instance = new ItemInstance(this);
+        DataSet data = new DataSet();
+        TileEntitySipaTank tile = world.getTileEntity(x, y, TileEntitySipaTank.class);
+        if (tile != null) {
+            data.addInt("sipa", (int) tile.currentSipa);
+        }
+        instance.setAdditionalData(data);
+        return Collections.singletonList(instance);
     }
 
     @Override
