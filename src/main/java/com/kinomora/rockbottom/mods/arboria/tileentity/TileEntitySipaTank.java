@@ -33,11 +33,12 @@ public class TileEntitySipaTank extends TileEntity {
         TileEntityNode nodeUpLeft = world.getTileEntity(x - 1, y + 1, TileEntityNode.class);
         TileEntityNode nodeUpRight = world.getTileEntity(x + 1, y + 1, TileEntityNode.class);
         if (checkDiagonalNode(upLeft, upRight, nodeUpLeft, nodeUpRight) == 1) {
-            nodeUpLeft.removeSipa(MAX_SIPA_RATE_PER_SECOND);
-            this.addSipa(MAX_SIPA_RATE_PER_SECOND);
+            if(nodeUpLeft.removeSipa(MAX_SIPA_RATE_PER_SECOND))
+                //The [if] test, and if true, automatically removes from the node and adds to the tank
+                this.addSipa(MAX_SIPA_RATE_PER_SECOND);
         } else if (checkDiagonalNode(upLeft, upRight, nodeUpLeft, nodeUpRight) == 2) {
-            nodeUpRight.removeSipa(MAX_SIPA_RATE_PER_SECOND);
-            this.addSipa(MAX_SIPA_RATE_PER_SECOND);
+            if(nodeUpRight.removeSipa(MAX_SIPA_RATE_PER_SECOND))
+                this.addSipa(MAX_SIPA_RATE_PER_SECOND);
         } else {
 
         }
@@ -46,12 +47,12 @@ public class TileEntitySipaTank extends TileEntity {
     private int checkDiagonalNode(TileState upLeft, TileState upRight, TileEntityNode nodeUpLeft, TileEntityNode nodeUpRight) {
         //UP RIGHT
         if (upLeft.getTile() instanceof TileMagicWood && upLeft.get(TileMagicWood.HAS_NODE)) {
-            Log.info("Tile at " + (x - 1) + ", " + (y + 1) + " has a node with " + nodeUpLeft.getCurrentSipa() + " sipa.");
+            Log.debug("Tile at " + (x - 1) + ", " + (y + 1) + " has a node with " + nodeUpLeft.getCurrentSipa() + " sipa.");
             return 1;
         }
         //UP LEFT
         else if (upRight.getTile() instanceof TileMagicWood && upRight.get(TileMagicWood.HAS_NODE)) {
-            Log.info("Tile at " + (x + 1) + ", " + (y + 1) + " has a node with " + nodeUpRight.getCurrentSipa() + " sipa.");
+            Log.debug("Tile at " + (x + 1) + ", " + (y + 1) + " has a node with " + nodeUpRight.getCurrentSipa() + " sipa.");
             return 2;
         } else {
             return 0;

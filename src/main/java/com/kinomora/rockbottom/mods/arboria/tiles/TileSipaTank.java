@@ -37,7 +37,7 @@ public class TileSipaTank extends TileBasic {
         } else if (RockBottomAPI.getGame().getInput().isKeyDown(Input.KEY_RCONTROL)){
             world.getTileEntity(x, y, TileEntitySipaTank.class).addSipa(1000);
         }
-        Log.info("Current sipa in tank is: " + world.getTileEntity(x, y, TileEntitySipaTank.class).getCurrentSipa());
+        Log.debug("Current sipa in tank is: " + world.getTileEntity(x, y, TileEntitySipaTank.class).getCurrentSipa());
         return true;
     }
 
