@@ -42,7 +42,7 @@ public class TileMagicWood extends TileBasic {
     public boolean onInteractWith(IWorld world, int x, int y, TileLayer layer, double mouseX, double mouseY, AbstractEntityPlayer player) {
         TileEntityNode node = world.getTileEntity(x,y,TileEntityNode.class);
         if(node != null)
-            Log.debug("Current sipa level: " + node.getCurrentSipa());
+            Log.info("Current sipa level: " + node.getCurrentSipa());
         return true;
     }
 

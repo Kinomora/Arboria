@@ -3,6 +3,7 @@ package com.kinomora.rockbottom.mods.arboria.renderer;
 import com.kinomora.rockbottom.mods.arboria.tiles.TileSipaPump;
 import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.assets.IAssetManager;
+import de.ellpeck.rockbottom.api.item.ItemInstance;
 import de.ellpeck.rockbottom.api.render.tile.DefaultTileRenderer;
 import de.ellpeck.rockbottom.api.tile.Tile;
 import de.ellpeck.rockbottom.api.tile.state.TileState;
@@ -30,7 +31,7 @@ public class TileSipaPumpRenderer extends DefaultTileRenderer {
     }
 
     @Override
-    public void renderItem(IGameInstance game, IAssetManager manager, Graphics g, Tile tile, int meta, float x, float y, float scale, Color filter) {
+    public void renderItem(IGameInstance game, IAssetManager manager, Graphics g, Tile tile, ItemInstance instance, float x, float y, float scale, Color filter) {
         manager.getAnimation(this.texture).drawFrame(0, 0, x, y, scale, Color.white);
     }
 }

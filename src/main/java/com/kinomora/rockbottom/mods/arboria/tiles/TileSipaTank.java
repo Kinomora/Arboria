@@ -34,10 +34,10 @@ public class TileSipaTank extends TileBasic {
     public boolean onInteractWith(IWorld world, int x, int y, TileLayer layer, double mouseX, double mouseY, AbstractEntityPlayer player) {
         if (RockBottomAPI.getGame().getInput().isKeyDown(Input.KEY_LCONTROL)) {
             world.getTileEntity(x, y, TileEntitySipaTank.class).removeSipa(1000);
-        } else {
+        } else if (RockBottomAPI.getGame().getInput().isKeyDown(Input.KEY_RCONTROL)){
             world.getTileEntity(x, y, TileEntitySipaTank.class).addSipa(1000);
         }
-        Log.debug("Current sipa in tank is: " + world.getTileEntity(x, y, TileEntitySipaTank.class).getCurrentSipa());
+        Log.info("Current sipa in tank is: " + world.getTileEntity(x, y, TileEntitySipaTank.class).getCurrentSipa());
         return true;
     }
 

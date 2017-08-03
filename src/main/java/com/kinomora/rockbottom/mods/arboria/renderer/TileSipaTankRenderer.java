@@ -47,14 +47,13 @@ public class TileSipaTankRenderer extends DefaultTileRenderer {
     }
 
     @Override
-    public void renderItem(IGameInstance game, IAssetManager manager, Graphics g, Tile tile, int meta, float x, float y, float scale, Color filter) {
+    public void renderItem(IGameInstance game, IAssetManager manager, Graphics g, Tile tile, ItemInstance instance, float x, float y, float scale, Color filter) {
         manager.getTexture(this.texture).draw(x, y, scale, scale, filter);
         IResourceName sipa = this.texture.addSuffix(".sipa");
         Texture tex = manager.getTexture(sipa);
 
         float sipaPerc = 0;
         int sipaAmount;
-        ItemInstance instance = new ItemInstance(tile);
         DataSet data = instance.getAdditionalData();
         if (data != null) {
             sipaAmount = data.getInt("sipa");
@@ -70,6 +69,6 @@ public class TileSipaTankRenderer extends DefaultTileRenderer {
         float endRenderY = y + scale * 11 * p;
         float startRenderY = y + scale * (11 - pixelRender) * p;
 
-        manager.getTexture(sipa).draw(startRenderX, startRenderY, endRenderX , endRenderY, 0, 10 - pixelRender, tex.getWidth(), tex.getHeight(), filter);
+        manager.getTexture(sipa).draw(startRenderX, startRenderY, endRenderX, endRenderY, 0, 10 - pixelRender, tex.getWidth(), tex.getHeight(), filter);
     }
 }
