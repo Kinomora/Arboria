@@ -50,10 +50,10 @@ public class ArboriaTiles {
         tileSunnyBoards = new TileBasic(RockBottomAPI.createRes(Arboria.instance, "tileSunnyBoards")).register().setForceDrop();
 
         //Leaves
-        tileDuskLeaves = new TileMagicWood(RockBottomAPI.createRes(Arboria.instance, "tileDuskLeaves")).register();
-        tileMoonlitLeaves = new TileMagicWood(RockBottomAPI.createRes(Arboria.instance, "tileMoonlitLeaves")).register();
-        tileMorningLeaves = new TileMagicWood(RockBottomAPI.createRes(Arboria.instance, "tileMorningLeaves")).register();
-        tileSunnyLeaves = new TileMagicWood(RockBottomAPI.createRes(Arboria.instance, "tileSunnyLeaves")).register();
+        tileDuskLeaves = new TileMagicLeaves(RockBottomAPI.createRes(Arboria.instance, "tileDuskLeaves")).register();
+        tileMoonlitLeaves = new TileMagicLeaves(RockBottomAPI.createRes(Arboria.instance, "tileMoonlitLeaves")).register();
+        tileMorningLeaves = new TileMagicLeaves(RockBottomAPI.createRes(Arboria.instance, "tileMorningLeaves")).register();
+        tileSunnyLeaves = new TileMagicLeaves(RockBottomAPI.createRes(Arboria.instance, "tileSunnyLeaves")).register();
 
         tileNode = new TileNode(RockBottomAPI.createRes(Arboria.instance, "tileNode")).register();
         tileSipaTank = new TileSipaTank(RockBottomAPI.createRes(Arboria.instance, "tileSipaTank")).register().setForceDrop();

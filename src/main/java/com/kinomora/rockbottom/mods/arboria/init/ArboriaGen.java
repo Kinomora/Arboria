@@ -11,5 +11,6 @@ public class ArboriaGen {
         RockBottomAPI.WORLD_GENERATORS.add(GenShadowlessSapling.class);
         RockBottomAPI.WORLD_GENERATORS.add(GenNode.class);
         RockBottomAPI.WORLD_GENERATORS.add(TestGenTree.class);
+       // RockBottomAPI.WORLD_GENERATORS.add(GenTreeShadowless.class);
     }
 }

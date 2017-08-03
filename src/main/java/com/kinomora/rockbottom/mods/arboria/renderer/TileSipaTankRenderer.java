@@ -9,6 +9,7 @@ import de.ellpeck.rockbottom.api.item.ItemInstance;
 import de.ellpeck.rockbottom.api.render.tile.DefaultTileRenderer;
 import de.ellpeck.rockbottom.api.tile.Tile;
 import de.ellpeck.rockbottom.api.tile.state.TileState;
+import de.ellpeck.rockbottom.api.util.Util;
 import de.ellpeck.rockbottom.api.util.reg.IResourceName;
 import de.ellpeck.rockbottom.api.world.IWorld;
 import de.ellpeck.rockbottom.api.world.TileLayer;
@@ -35,7 +36,7 @@ public class TileSipaTankRenderer extends DefaultTileRenderer {
         float sipaPerc = world.getTileEntity(x, y, TileEntitySipaTank.class).getSipaPercentage();
 
         float p = 1 / 12f;
-        int pixelRender = (int) (sipaPerc * 10);
+        int pixelRender = Util.ceil(sipaPerc * 10);
 
         float startRenderX = renderX + scale * 2 * p;
         float endRenderX = renderX + scale * 10 * p;
