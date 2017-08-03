@@ -27,8 +27,9 @@ anim.tiles.tileNode=/textures/tiles/tileNode/tileNode.png,/textures/tiles/tileNo
 tex.tiles.tileSipaTank=sub./textures/tiles/tileSipaTank/sipaTank.png,0,0,12,12
 tex.tiles.tileSipaTank.sipa=sub./textures/tiles/tileSipaTank/sipaTank.png,14,1,8,10
 
-
-
 tex.tiles.tileSipaPump=/textures/tiles/tileSipaPump/tileSipaPump.png
 anim.tiles.tileSipaPump=/textures/tiles/tileSipaPump/tileSipaPump.png,/textures/tiles/tileSipaPump/tileSipaPump.anim
+
+tex.tiles.tileCrystalizer.0.0=sub./textures/tiles/crystalizer.png,0,13,12,24
+tex.tiles.tileCrystalizer.0.1=sub./textures/tiles/crystalizer.png,0,0,12,12
 

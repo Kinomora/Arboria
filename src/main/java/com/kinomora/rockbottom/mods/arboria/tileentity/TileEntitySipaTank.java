@@ -12,7 +12,7 @@ public class TileEntitySipaTank extends TileEntity {
 
     private static final int MAX_SIPA_RATE_PER_SECOND = 1;
     private static final float MAX_SIPA = 8000;
-    public float currentSipa = 0;
+    private float currentSipa = 0;
 
     public TileEntitySipaTank(IWorld world, int x, int y) {
         super(world, x, y);

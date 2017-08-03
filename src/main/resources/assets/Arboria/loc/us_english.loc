@@ -16,6 +16,8 @@ arboria/item.tileSunnyBoards=Sunny Boards
 arboria/item.tileSunnyLeaves=Sunny Leaves
 arboria/item.tileSipaTank=Sipa Tank
 arboria/item.tileSipaPump=Sipa Pump
+arboria/item.tileCrystalizer=Sipa Crystalizer
+arboria/item.tileNode=Node
 
 arboria/details.tileShadowlessSapling=A sapling that produces spia during the day.
 arboria/details.tileDaybreakSapling=A sapling that produces sipa during dawn.
@@ -23,3 +25,4 @@ arboria/details.tileNightfallSapling=A sapling that produces sipa during dusk.
 arboria/details.tileBewitchedSapling=A sapling that produces sipa during the night.
 arboria/details.tileSipaTank=A basin to store Sipa extracted by a Sipa Pump.
 arboria/details.tileSipaPump=A device to extract Sipa from a producing tree. Stores Sipa in a tank placed beneath.
+arboria/details.tileCrystalizer=Crystalizes liquid Sipa into Sipa Crystals used in various crafting recipes.
