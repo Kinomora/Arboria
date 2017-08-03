@@ -71,6 +71,7 @@ public class TileSipaTank extends TileBasic {
         TileEntitySipaTank tile = world.getTileEntity(x, y, TileEntitySipaTank.class);
         if (tile != null) {
             data.addInt("sipa", tile.getCurrentSipa());
+            data.addInt("maxSipa", tile.getMaxSipa());
         }
         instance.setAdditionalData(data);
         return Collections.singletonList(instance);
