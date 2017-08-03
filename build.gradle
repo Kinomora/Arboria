@@ -7,6 +7,10 @@ processSources {
     replace("VERSION", version)
 }
 
+run {
+    args += ["--logLevel", "DEBUG"]
+}
+
 dependencies {
      compile group: 'de.ellpeck.rockbottom', name: 'RockBottomAPI', version: '0.0.20-150'
  }

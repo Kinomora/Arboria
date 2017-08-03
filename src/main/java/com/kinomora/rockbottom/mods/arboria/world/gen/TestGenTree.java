@@ -8,7 +8,7 @@ public class TestGenTree extends GenTree {
 
     @Override
     public int getPriority() {
-        return 100;
+        return 1000;
     }
 
     @Override
@@ -28,6 +28,6 @@ public class TestGenTree extends GenTree {
 
     @Override
     public int maxHeight() {
-        return 8;
+        return 10;
     }
 }

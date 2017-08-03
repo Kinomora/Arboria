@@ -70,7 +70,7 @@ public class TileSipaTank extends TileBasic {
         DataSet data = new DataSet();
         TileEntitySipaTank tile = world.getTileEntity(x, y, TileEntitySipaTank.class);
         if (tile != null) {
-            data.addInt("sipa", (int) tile.currentSipa);
+            data.addInt("sipa", tile.getCurrentSipa());
         }
         instance.setAdditionalData(data);
         return Collections.singletonList(instance);
@@ -99,6 +99,18 @@ public class TileSipaTank extends TileBasic {
     @Override
     protected ITileRenderer createRenderer(IResourceName name) {
         return new TileSipaTankRenderer(name);
+    }
+
+    @Override
+    public void doPlace(IWorld world, int x, int y, TileLayer layer, ItemInstance instance, AbstractEntityPlayer placer) {
+        super.doPlace(world, x, y, layer, instance, placer);
+        DataSet data = instance.getAdditionalData();
+        if (data != null) {
+            TileEntitySipaTank tile = world.getTileEntity(x, y, TileEntitySipaTank.class);
+            if (tile != null) {
+                tile.addSipa(data.getInt("sipa"));
+            }
+        }
     }
 
     @Override

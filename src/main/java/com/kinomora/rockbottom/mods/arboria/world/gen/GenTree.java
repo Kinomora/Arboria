@@ -33,14 +33,14 @@ public abstract class GenTree implements IWorldGenerator {
         //Log.info("radius is " + crownRad);
 
         for (int checkY = startY; checkY <= startY + thisHeight + crownRad + 1; checkY++) {
-            for (int checkX = startX -crownRad - 1; checkX <= startX + crownRad + 1; checkX++) {
-                //Log.info("Checking coordinates: " + checkX + ", " + checkY + " contains tile " + world.getState(TileLayer.MAIN, checkX, checkY).getTile().getName());
-                    if (world.getState(TileLayer.MAIN, checkX, checkY).getTile() == GameContent.TILE_LOG || world.getState(TileLayer.MAIN, checkX, checkY).getTile().getName() == GameContent.TILE_LEAVES.getName()) {
-                        spawn = false;
-                        Log.info("Found " + world.getState(TileLayer.MAIN, checkX, checkY).getTile().getName() + " at " + checkX + ", " + checkY);
-                    }
+            for (int checkX = startX - crownRad - 1; checkX <= startX + crownRad + 1; checkX++) {
+                Log.info("Checking coordinates: " + checkX + ", " + checkY + " contains tile " + world.getState(TileLayer.MAIN, checkX, checkY).getTile().getName());
+                if (world.getState(TileLayer.MAIN, checkX, checkY).getTile() == GameContent.TILE_LOG || world.getState(TileLayer.MAIN, checkX, checkY).getTile().getName() == GameContent.TILE_LEAVES.getName()) {
+                    spawn = false;
+                    Log.info("Found " + world.getState(TileLayer.MAIN, checkX, checkY).getTile().getName() + " at " + checkX + ", " + checkY);
                 }
             }
+        }
         if (spawn) {
             if (spawnChance() != 0) {
                 if (rand.nextInt(spawnChance()) == 0) {
@@ -88,11 +88,6 @@ public abstract class GenTree implements IWorldGenerator {
                                     }
                                 }
                             }
-                                double rayX = (crownRad + 1) * Math.cos(a);
-                                double rayY = (crownRad + 1) * Math.sin(a);
-                            if (rand.nextInt(40) == 0 && !(world.getState(startX + (int) rayX, startY + thisHeight + (int) rayY).getTile() instanceof TileMagicWood)) {
-                                world.setState(startX + (int) rayX, startY + thisHeight + (int) rayY, getLeaves());
-                            }
                         }
                     }
                 }
@@ -103,7 +98,7 @@ public abstract class GenTree implements IWorldGenerator {
 
     @Override
     public int getPriority() {
-        return 210;
+        return 1000;
     }
 
     public abstract int spawnChance();

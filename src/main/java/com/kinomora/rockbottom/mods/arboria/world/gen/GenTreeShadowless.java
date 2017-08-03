@@ -41,47 +41,49 @@ public abstract class GenTreeShadowless implements IWorldGenerator {
                 }
             }
         }
-        if (spawnChance() != 0) {
-            if (rand.nextInt(spawnChance()) == 0) {
-                if (world.getState(startX, startY - 1).getTile() == GameContent.TILE_GRASS) {
-                    for (int y = 0; y <= thisHeight; y++) {
-                        if (rand.nextInt(2) == 0) {
-                            world.setState(startX, startY + y, getWood().prop(TileMagicWood.HAS_NODE, true));
-                        } else world.setState(startX, startY + y, getWood());
-                    }
-                    for (int t = 0; t < 360; t++) {
-                        double a = Math.PI * ((double) t / 180);
-                        double crownX = crownRad * Math.cos(a);
-                        double crownY = crownRad * Math.sin(a);
+        if (spawn) {
+            if (spawnChance() != 0) {
+                if (rand.nextInt(spawnChance()) == 0) {
+                    if (world.getState(startX, startY - 1).getTile() == GameContent.TILE_GRASS) {
+                        for (int y = 0; y <= thisHeight; y++) {
+                            if (rand.nextInt(2) == 0) {
+                                world.setState(startX, startY + y, getWood().prop(TileMagicWood.HAS_NODE, true));
+                            } else world.setState(startX, startY + y, getWood());
+                        }
+                        for (int t = 0; t < 360; t++) {
+                            double a = Math.PI * ((double) t / 180);
+                            double crownX = crownRad * Math.cos(a);
+                            double crownY = crownRad * Math.sin(a);
 
-                        if (crownY > 0) {
-                            for (int y = 0; y <= Util.floor(crownY); y++) {
-                                if (crownX > 0) {
-                                    for (int x = 0; x <= Util.floor(crownX); x++) {
-                                        if (!(world.getState(startX + x, startY + thisHeight + y).getTile() instanceof TileMagicWood)) {
-                                            world.setState(startX + x, startY + thisHeight + y, getLeaves());
+                            if (crownY > 0) {
+                                for (int y = 0; y <= Util.floor(crownY); y++) {
+                                    if (crownX > 0) {
+                                        for (int x = 0; x <= Util.floor(crownX); x++) {
+                                            if (!(world.getState(startX + x, startY + thisHeight + y).getTile() instanceof TileMagicWood)) {
+                                                world.setState(startX + x, startY + thisHeight + y, getLeaves());
+                                            }
                                         }
-                                    }
-                                } else {
-                                    for (int x = Util.ceil(crownX); x <= 0; x++) {
-                                        if (!(world.getState(startX + x, startY + thisHeight + y).getTile() instanceof TileMagicWood)) {
-                                            world.setState(startX + x, startY + thisHeight + y, getLeaves());
+                                    } else {
+                                        for (int x = Util.ceil(crownX); x <= 0; x++) {
+                                            if (!(world.getState(startX + x, startY + thisHeight + y).getTile() instanceof TileMagicWood)) {
+                                                world.setState(startX + x, startY + thisHeight + y, getLeaves());
+                                            }
                                         }
                                     }
                                 }
-                            }
-                        } else {
-                            for (int y = Util.ceil(crownY); y <= 0; y++) {
-                                if (crownX > 0) {
-                                    for (int x = 0; x <= Util.floor(crownX); x++) {
-                                        if (!(world.getState(startX + x, startY + thisHeight + y).getTile() instanceof TileMagicWood)) {
-                                            world.setState(startX + x, startY + thisHeight + y, getLeaves());
+                            } else {
+                                for (int y = Util.ceil(crownY); y <= 0; y++) {
+                                    if (crownX > 0) {
+                                        for (int x = 0; x <= Util.floor(crownX); x++) {
+                                            if (!(world.getState(startX + x, startY + thisHeight + y).getTile() instanceof TileMagicWood)) {
+                                                world.setState(startX + x, startY + thisHeight + y, getLeaves());
+                                            }
                                         }
-                                    }
-                                } else {
-                                    for (int x = Util.ceil(crownX); x <= 0; x++) {
-                                        if (!(world.getState(startX + x, startY + thisHeight + y).getTile() instanceof TileMagicWood)) {
-                                            world.setState(startX + x, startY + thisHeight + y, getLeaves());
+                                    } else {
+                                        for (int x = Util.ceil(crownX); x <= 0; x++) {
+                                            if (!(world.getState(startX + x, startY + thisHeight + y).getTile() instanceof TileMagicWood)) {
+                                                world.setState(startX + x, startY + thisHeight + y, getLeaves());
+                                            }
                                         }
                                     }
                                 }
