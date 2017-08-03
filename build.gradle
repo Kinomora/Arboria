@@ -12,9 +12,5 @@ run {
 }
 
 dependencies {
-     compile group: 'de.ellpeck.rockbottom', name: 'RockBottomAPI', version: '0.0.20-150'
+     compile group: 'de.ellpeck.rockbottom', name: 'RockBottomAPI', version: '0.0.21-154'
  }
-
-run {
-    args += ["--logLevel", "DEBUG"]
-}
