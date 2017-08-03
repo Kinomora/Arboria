@@ -13,7 +13,7 @@ import org.newdawn.slick.util.Log;
 
 import java.util.Random;
 
-public abstract class GenTree implements IWorldGenerator {
+public abstract class GenTreeFull implements IWorldGenerator {
 
     @Override
     public boolean shouldGenerate(IWorld world, IChunk chunk, Random rand) {
@@ -98,7 +98,7 @@ public abstract class GenTree implements IWorldGenerator {
 
     @Override
     public int getPriority() {
-        return 1000;
+        return 0;
     }
 
     public abstract int spawnChance();

@@ -19,7 +19,6 @@ import org.newdawn.slick.util.Log;
 
 public class TileSipaTankRenderer extends DefaultTileRenderer {
 
-
     public TileSipaTankRenderer(IResourceName texture) {
         super(texture);
     }
@@ -58,8 +57,9 @@ public class TileSipaTankRenderer extends DefaultTileRenderer {
         int sipaAmount;
         DataSet data = instance.getAdditionalData();
         if (data != null) {
+            int maxSipa = data.getInt("maxSipa");
             sipaAmount = data.getInt("sipa");
-            sipaPerc = sipaAmount / 8000f;
+            sipaPerc = sipaAmount / maxSipa;
             Log.debug("Sipa is: " + sipaAmount + "..." + sipaPerc);
         }
 
