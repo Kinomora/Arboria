@@ -4,16 +4,16 @@ import com.kinomora.rockbottom.mods.arboria.init.ArboriaTiles;
 import com.kinomora.rockbottom.mods.arboria.tiles.magicwood.TileMagicWood;
 import de.ellpeck.rockbottom.api.tile.state.TileState;
 
-public class GenShadowlessTree extends GenTreeFull {
+public class GenBewitchedTree extends GenTreeFull {
 
     @Override
     public TileState getWood() {
-        return ArboriaTiles.tileSunnyWood.getDefState().prop(TileMagicWood.IS_NATURAL, true);
+        return ArboriaTiles.tileMoonlitWood.getDefState().prop(TileMagicWood.IS_NATURAL, true);
     }
 
     @Override
     public TileState getLeaves() {
-        return ArboriaTiles.tileSunnyLeaves.getDefState().prop(TileMagicWood.IS_NATURAL, true);
+        return ArboriaTiles.tileMoonlitLeaves.getDefState().prop(TileMagicWood.IS_NATURAL, true);
     }
 
     @Override
@@ -23,7 +23,7 @@ public class GenShadowlessTree extends GenTreeFull {
 
     @Override
     public int getPriority() {
-        return 301;
+        return 303;
     }
 
     @Override

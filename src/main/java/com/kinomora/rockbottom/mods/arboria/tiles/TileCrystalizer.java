@@ -11,14 +11,11 @@ import de.ellpeck.rockbottom.api.world.IWorld;
 
 import java.util.List;
 
-/**
- * Created by Kinomora on 8/3/2017.
- */
 public class TileCrystalizer extends MultiTile {
 
     private static final String tileName = "tileCrystalizer";
     private static final IResourceName LOC = RockBottomAPI.createRes(Arboria.instance,"details." + tileName);
-    private final BoundBox box = new BoundBox(0, 0, 1, 16 / 12d);
+    private final BoundBox box = new BoundBox(1/12f, 0, 11/12f, 7/12f);
 
     public TileCrystalizer(IResourceName name) {
         super(name);
@@ -54,7 +51,7 @@ public class TileCrystalizer extends MultiTile {
 
     @Override
     public boolean isFullTile() {
-        return false;
+        return true;
     }
 
     @Override

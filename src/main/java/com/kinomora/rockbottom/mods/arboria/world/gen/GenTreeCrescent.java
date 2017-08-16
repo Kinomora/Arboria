@@ -14,7 +14,7 @@ import de.ellpeck.rockbottom.api.world.gen.IWorldGenerator;
 
 import java.util.Random;
 
-public abstract class GenTreeFull implements IWorldGenerator {
+public abstract class GenTreeCrescent implements IWorldGenerator {
 
     @Override
     public boolean shouldGenerate(IWorld world, IChunk chunk, Random rand) {
@@ -26,7 +26,7 @@ public abstract class GenTreeFull implements IWorldGenerator {
 
         int thisHeight = maxHeight() - rand.nextInt(3);
         int halfHeight = thisHeight / 2;
-        int crownRad = halfHeight - rand.nextInt(2);
+        int crownRad = halfHeight - rand.nextInt(2) - 1;
         int startX = chunk.getX() + crownRad + 1 + rand.nextInt(Constants.CHUNK_SIZE - 2 * crownRad - 1);
         int startY = chunk.getLowestAirUpwards(TileLayer.MAIN, startX, 0);
 
@@ -38,7 +38,6 @@ public abstract class GenTreeFull implements IWorldGenerator {
                 }
             }
         }
-
         if (spawnChance() != 0) {
             if (rand.nextInt(spawnChance()) == 0) {
                 if (world.getState(startX, startY - 1).getTile() == GameContent.TILE_GRASS) {
@@ -47,7 +46,7 @@ public abstract class GenTreeFull implements IWorldGenerator {
                             world.setState(startX, startY + y, getWood().prop(TileMagicWood.HAS_NODE, true));
                         } else world.setState(startX, startY + y, getWood());
                     }
-                    for (int t = 0; t < 360; t++) {
+                    for (int t = 0; t < 181; t++) {
                         double a = Math.PI * ((double) t / 180);
                         double crownX = crownRad * Math.cos(a);
                         double crownY = crownRad * Math.sin(a);

@@ -1,6 +1,6 @@
 package com.kinomora.rockbottom.mods.arboria.tileentity;
 
-import com.kinomora.rockbottom.mods.arboria.tiles.MagicWood.TileMagicWood;
+import com.kinomora.rockbottom.mods.arboria.tiles.magicwood.TileMagicWood;
 import de.ellpeck.rockbottom.api.IGameInstance;
 import de.ellpeck.rockbottom.api.data.set.DataSet;
 import de.ellpeck.rockbottom.api.tile.entity.TileEntity;

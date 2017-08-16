@@ -1,0 +1,35 @@
+{
+  "arboria": {
+    "details": {
+      "tileBewitchedSapling": "A sapling that produces sipa during the night.",
+      "tileCrystalizer": "Crystalizes liquid Sipa into Sipa Crystals used in various crafting recipes.",
+      "tileDaybreakSapling": "A sapling that produces sipa during dawn.",
+      "tileNightfallSapling": "A sapling that produces sipa during dusk.",
+      "tileShadowlessSapling": "A sapling that produces spia during the day.",
+      "tileSipaPump": "A device to extract Sipa from a producing tree. Stores Sipa in a tank placed beneath.",
+      "tileSipaTank": "A basin to store Sipa extracted by a Sipa Pump."
+    },
+    "item": {
+      "tileBewitchedSapling": "Bewitched Sapling",
+      "tileCrystalizer": "Sipa Crystalizer",
+      "tileDaybreakSapling": "Daybreak Sapling",
+      "tileDuskBoards": "Dusk Boards",
+      "tileDuskLeaves": "Dusk Leaves",
+      "tileDuskWood": "Dusk Wood",
+      "tileMoonlitBoards": "Moonlit Boards",
+      "tileMoonlitLeaves": "Moonlit Leaves",
+      "tileMoonlitWood": "Moonlit Wood",
+      "tileMorningBoards": "Morning Boards",
+      "tileMorningLeaves": "Morning Leaves",
+      "tileMorningWood": "Morning Wood",
+      "tileNightfallSapling": "Nightfall Sapling",
+      "tileNode": "Node",
+      "tileShadowlessSapling": "Shadowless Sapling",
+      "tileSipaPump": "Sipa Pump",
+      "tileSipaTank": "Sipa Tank",
+      "tileSunnyBoards": "Sunny Boards",
+      "tileSunnyLeaves": "Sunny Leaves",
+      "tileSunnyWood": "Sunny Wood"
+    }
+  }
+}

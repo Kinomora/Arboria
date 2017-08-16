@@ -1,0 +1,48 @@
+{
+  "tex": {
+    "tiles": {
+      "tileShadowlessSapling": "/textures/tiles/MagicWood/shadowlessSapling.png",
+      "tileDaybreakSapling": "/textures/tiles/MagicWood/daybreakSapling.png",
+      "tileNightfallSapling": "/textures/tiles/MagicWood/nightfallSapling.png",
+      "tileBewitchedSapling": "/textures/tiles/MagicWood/bewitchedSapling.png",
+      "tileMorningWood": "/textures/tiles/MagicWood/morningWood.png",
+      "tileMorningLeaves": "/textures/tiles/MagicWood/morningLeaves.png",
+      "tileMorningBoards": "/textures/tiles/MagicWood/morningBoards.png",
+      "tileMoonlitWood": "/textures/tiles/MagicWood/moonlitWood.png",
+      "tileMoonlitBoards": "/textures/tiles/MagicWood/moonlitBoards.png",
+      "tileMoonlitLeaves": "/textures/tiles/MagicWood/moonlitLeaves.png",
+      "tileSunnyBoards": "/textures/tiles/MagicWood/sunnyBoards.png",
+      "tileSunnyWood": "/textures/tiles/MagicWood/moonlitBoards.png",
+      "tileSunnyLeaves": "/textures/tiles/MagicWood/moonlitLeaves.png",
+      "tileDuskWood": "/textures/tiles/MagicWood/duskWood.png",
+      "tileDuskBoards": "/textures/tiles/MagicWood/duskBoards.png",
+      "tileDuskLeaves": "/textures/tiles/MagicWood/duskLeaves.png",
+
+      "tileCrystalizer": {
+        "subtexture": {
+          "file": "/textures/tiles/crystalizer.png",
+          "0.0": [0, 12, 12, 12],
+          "0.1": [0, 0, 12, 12]
+        }
+      },
+      "tileSipaTank": {
+        "*": {
+          "subtexture": {
+            "file": "/textures/tiles/tileSipaTank/sipaTank.png",
+            "empty": [0, 0, 12, 12],
+            "sipa": [14, 1, 8, 10]
+          }
+        }
+      }
+    }
+  },
+  "anim": {
+    "tiles": {
+      "tileNode": ["/textures/tiles/tileNode/tileNode.json", "/textures/tiles/tileNode/tileNode.png"],
+      "tileSipaPump": ["/textures/tiles/tileSipaPump/tileSipaPump.json", "/textures/tiles/tileSipaPump/tileSipaPump.png"]
+    }
+  },
+  "loc": {
+    "us_english": "/loc/us_english.json"
+  }
+}

@@ -15,7 +15,7 @@ import de.ellpeck.rockbottom.api.world.IWorld;
 import de.ellpeck.rockbottom.api.world.TileLayer;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.util.Log;
+import org.newdawn.slick.Image;
 
 public class TileSipaTankRenderer extends DefaultTileRenderer {
 
@@ -27,7 +27,7 @@ public class TileSipaTankRenderer extends DefaultTileRenderer {
     @Override
     public void render(IGameInstance game, IAssetManager manager, Graphics g, IWorld world, Tile tile, TileState state, int x, int y, TileLayer layer, float renderX, float renderY, float scale, Color[] light) {
         //Render Tank
-        manager.getTexture(this.texture).drawWithLight(renderX, renderY, scale, scale, light);
+        manager.getTexture(this.texture.addSuffix(".empty")).drawWithLight(renderX, renderY, scale, scale, light);
 
         //Render Sipa in Tank
         IResourceName sipa = this.texture.addSuffix(".sipa");
@@ -39,17 +39,17 @@ public class TileSipaTankRenderer extends DefaultTileRenderer {
         int pixelRender = Util.ceil(sipaPerc * 10);
 
         float startRenderX = renderX + scale * 2 * p;
-        float endRenderX = renderX + scale * 10 * p;
+    float endRenderX = renderX + scale * 10 * p;
 
-        float endRenderY = renderY + scale * 11 * p;
-        float startRenderY = renderY + scale * (11 - pixelRender) * p;
+    float endRenderY = renderY + scale * 11 * p;
+    float startRenderY = renderY + scale * (11 - pixelRender) * p;
 
         manager.getTexture(sipa).drawWithLight(startRenderX, startRenderY, endRenderX, endRenderY, 0, 10 - pixelRender, tex.getWidth(), tex.getHeight(), light, Color.white);
-    }
+}
 
     @Override
     public void renderItem(IGameInstance game, IAssetManager manager, Graphics g, Tile tile, ItemInstance instance, float x, float y, float scale, Color filter) {
-        manager.getTexture(this.texture).draw(x, y, scale, scale, filter);
+        manager.getTexture(this.texture.addSuffix(".empty")).draw(x, y, scale, scale, filter);
         IResourceName sipa = this.texture.addSuffix(".sipa");
         Texture tex = manager.getTexture(sipa);
 
@@ -59,8 +59,7 @@ public class TileSipaTankRenderer extends DefaultTileRenderer {
         if (data != null) {
             int maxSipa = data.getInt("maxSipa");
             sipaAmount = data.getInt("sipa");
-            sipaPerc = sipaAmount / maxSipa;
-            Log.debug("Sipa is: " + sipaAmount + "..." + sipaPerc);
+            sipaPerc = sipaAmount / (float) maxSipa;
         }
 
         float p = 1 / 12f;
@@ -73,5 +72,10 @@ public class TileSipaTankRenderer extends DefaultTileRenderer {
         float startRenderY = y + scale * (11 - pixelRender) * p;
 
         manager.getTexture(sipa).draw(startRenderX, startRenderY, endRenderX, endRenderY, 0, 10 - pixelRender, tex.getWidth(), tex.getHeight(), filter);
+    }
+
+    @Override
+    public Image getParticleTexture(IGameInstance game, IAssetManager manager, Graphics g, Tile tile, TileState state) {
+        return manager.getTexture(this.texture.addSuffix(".empty"));
     }
 }

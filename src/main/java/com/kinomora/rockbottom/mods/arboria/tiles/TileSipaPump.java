@@ -2,7 +2,7 @@ package com.kinomora.rockbottom.mods.arboria.tiles;
 
 import com.kinomora.rockbottom.mods.arboria.init.ArboriaTiles;
 import com.kinomora.rockbottom.mods.arboria.renderer.TileSipaPumpRenderer;
-import com.kinomora.rockbottom.mods.arboria.tiles.MagicWood.TileMagicWood;
+import com.kinomora.rockbottom.mods.arboria.tiles.magicwood.TileMagicWood;
 import de.ellpeck.rockbottom.api.entity.player.AbstractEntityPlayer;
 import de.ellpeck.rockbottom.api.item.ItemInstance;
 import de.ellpeck.rockbottom.api.render.tile.ITileRenderer;

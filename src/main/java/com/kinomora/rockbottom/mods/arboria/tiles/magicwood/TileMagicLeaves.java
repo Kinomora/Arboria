@@ -1,4 +1,4 @@
-package com.kinomora.rockbottom.mods.arboria.tiles.MagicWood;
+package com.kinomora.rockbottom.mods.arboria.tiles.magicwood;
 
 import de.ellpeck.rockbottom.api.tile.TileBasic;
 import de.ellpeck.rockbottom.api.tile.state.BoolProp;

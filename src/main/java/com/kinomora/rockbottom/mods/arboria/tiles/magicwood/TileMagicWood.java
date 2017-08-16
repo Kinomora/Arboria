@@ -1,4 +1,4 @@
-package com.kinomora.rockbottom.mods.arboria.tiles.MagicWood;
+package com.kinomora.rockbottom.mods.arboria.tiles.magicwood;
 
 import com.kinomora.rockbottom.mods.arboria.renderer.TileMagicWoodRenderer;
 import com.kinomora.rockbottom.mods.arboria.tileentity.TileEntityNode;
